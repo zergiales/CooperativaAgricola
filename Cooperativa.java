@@ -8,27 +8,31 @@ import java.util.Scanner; //importamos la clase scanner
 public class Cooperativa{
 
 
-	public static void menu() {
-		System.out.println("caso 1");
-		System.out.println("caso 2");
-		System.out.println("caso 3");
-		System.out.println("caso 4");
-		System.out.println("caso 5");
-	}
+
 
 
     public static void main(String [] args){
-        //objetos de las clase que herada 
-        Scanner sc= new Scanner(System.in);
-        String nombre= sc.nextLine();
+    	//objeto Productores
+    	Productores p=new Productores("por defecto", 0, "12345678E", 4);
+        //objetos de las clase que hereda 
+    	Scanner sc= new Scanner(System.in);        
         
-        
-        
-        System.out.println("---------Menu de cooperativa agricola--------"+
-        " \n Inserte nombre de usuario:"+nombre);
+        System.out.print("---------Menu de cooperativa agricola--------"+
+        " \n Inserte nombre de usuario:");
+        String nombre = sc.nextLine();
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
+        System.out.println("¿Que desea hacer?");
+        System.out.println("Pulse 1 si desea crear un productor");
+        System.out.println("Pulse 2 si desea modificar un productor");
+        System.out.println("Pulse 3 si desea almacenar un productor");
+        System.out.print("numero a insertar:");
+        int puntero = sc.nextInt(); //parametro fundamental para acceder al menu princpial
+        //un pequeño enunciado antes de cargar el switch
+        wi
 
-
+        
+        //Metodo del menu
+    	
     }
 }
