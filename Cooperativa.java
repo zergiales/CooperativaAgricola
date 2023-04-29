@@ -1,33 +1,34 @@
-
+import java.util.Scanner; //importamos la clase scanner
 /**
- * Clase main desde la cual se gestiona la aplicación
+ * Clase main desde la cual se gestiona la aplicacion de la cooperativa agricola
  * 
  * @author Sergio 
- * @version 1
+ * @version 1.0 
  */
-public class Cooperativa
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Cooperativa{
 
-    /**
-     * Constructor for objects of class Cooperativa
-     */
-    public Cooperativa()
-    {
-        // initialise instance variables
-        x = 0;
-    }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+	public static void menu() {
+		System.out.println("caso 1");
+		System.out.println("caso 2");
+		System.out.println("caso 3");
+		System.out.println("caso 4");
+		System.out.println("caso 5");
+	}
+
+
+    public static void main(String [] args){
+        //objetos de las clase que herada 
+        Scanner sc= new Scanner(System.in);
+        String nombre= sc.nextLine();
+        
+        
+        
+        System.out.println("---------Menu de cooperativa agricola--------"+
+        " \n Inserte nombre de usuario:"+nombre);
+        System.out.println("--------------------------------");
+        System.out.println("Bienvenido: "+nombre);
+
+
     }
 }

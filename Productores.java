@@ -1,33 +1,29 @@
 
 /**
- * Write a description of class Productores here.
+ * Clase productores
+ * - En esta clase vamos dar forma a la figura de prodcutores.
+ * - Un productor es cualquier actor que proporciona a la empresa un determinado 
+ *   producto,
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Sergio Sanchez  
+ * @version 1.0
  */
-public class Productores extends Cooperativa
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Productores extends Cooperativa{
+	
+    // atributos que vamos a instanciar en el contructor
+    private String nombreProductor;
+	private int id;//cada productor debe tener un id asignado (automatico)
+    private String dni;//para identificarlos
+    private int numHectareas;// extension del terreno 
+    
+    // Constructor
+	public Productores(String nombreProductor, int id, String dni, int numHectareas) {
+		super(); //de la superclase
+		this.nombreProductor = nombreProductor;
+		this.id = id;
+		this.dni = dni;
+		this.numHectareas = numHectareas;
+	}
+	
 
-    /**
-     * Constructor for objects of class Productores
-     */
-    public Productores()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }
