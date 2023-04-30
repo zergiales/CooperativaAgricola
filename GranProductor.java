@@ -1,8 +1,10 @@
 
 /**
- * Write a description of class GranProductor here.
+ * Clase GranProductor, como su propio indica, es para aquellos productores
+ * que son grandes y cumple por tanto hectareas>5
  * 
- * @author (your name) 
+ * 
+ * @author Sergio
  * @version (a version number or a date)
  */
 public class GranProductor extends Productores

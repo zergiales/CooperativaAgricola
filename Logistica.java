@@ -1,8 +1,8 @@
 
 /**
- * Write a description of class Logistica here.
+ * Clase logistica
  * 
- * @author (your name) 
+ * @author Sergio Sanchez 
  * @version (a version number or a date)
  */
 public class Logistica extends Cooperativa
@@ -17,17 +17,5 @@ public class Logistica extends Cooperativa
     {
         // initialise instance variables
         x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
     }
 }

@@ -1,33 +1,30 @@
 
 /**
- * Write a description of class PequenioProductor here.
+ * clase PequenioProductor que como su nombre indica, es una clase 
+ * para moldear a aquellos productores que cumple el requisito de 
+ * 5 hectareas menor o igual a 5.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Sergio Sanchez
+ * @version 1.0
  */
-public class PequenioProductor extends Productores
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class PequenioProductor
-     */
-    public PequenioProductor()
-    {
-        // initialise instance variables
-        x = 0;
+public class PequenioProductor extends Productores{
+    //pueden tener como maximo cinco productos diferentes
+    String producto[]= new String[10];
+    //declaramos, instanciamos y damos el tamanio
+    
+    //constructor
+    public PequenioProductor(String nombreP, String dni, int hectareas, boolean federado, boolean pequenio, String Producto) {
+        super(nombreP, dni, hectareas, federado, pequenio);
+        
+    }
+    public void setProductos() {
+        for (int i = 0; i < producto.length; i++) {
+            producto[i]=sc.nextLine();
+        }
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+
+
+    
+    
 }
