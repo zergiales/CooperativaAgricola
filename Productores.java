@@ -11,20 +11,22 @@
 public class Productores extends Cooperativa{
 	
     // atributos que vamos a instanciar en el contructor
-    private String nombreProductor;
-//	private int id;//cada productor debe tener un id asignado (automatico)
+    private String nombreP ;
+    //private int id;//cada productor debe tener un id asignado (automatico)
     private String dni;//para identificarlos
-    private int numHectareas;// extension del terreno 
-    Object[] arrayP = new Object[4];
-
-    // Constructor que vamos a crear
-	public Productores(String nombreProductor, String dni, int numHectareas) {
-		super(); //de la superclase
-		this.nombreProductor = nombreProductor;
-//		this.id = id;
+    private int hectareas;// numero de hectareas 
+    boolean federado = false; //por defecto asumimos que es no es
+    boolean pequeño = true; //por defecto todos son pequeños productores
+    
+    // Constructor
+	public Productores(String nombreP, String dni, int hectareas, boolean federado, boolean pequeño) {
+		this.nombreP = nombreP;
 		this.dni = dni;
-		this.numHectareas = numHectareas;
+		this.hectareas = hectareas;
+		this.federado = federado;
+		this.pequeño = pequeño;
 	}
+	
 	
 
 }

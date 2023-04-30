@@ -7,8 +7,6 @@ import java.util.Scanner; //importamos la clase scanner
  */
 public class Cooperativa{
     public static void main(String [] args){
-    	//objeto Productores
-    	Productores p=new Productores("por defecto", 0, "12345678E", 4);
         //objetos de las clase que hereda 
     	Scanner sc= new Scanner(System.in);        
         
@@ -27,7 +25,6 @@ public class Cooperativa{
         
         	if (puntero==1) {
 				System.out.println("Ha elegido crear un prodcutor");
-				crearProdcutor();
 			}else if(puntero==2) {
 				System.out.println("Ha elegido modificar un prodcutor");
 			}else if(puntero==3) {
