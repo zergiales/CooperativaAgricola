@@ -35,13 +35,5 @@ public class Cooperativa{
 			} else if (puntero != puntero)
         	    System.out.println("te has equivocao bro");
         
-
-        
-        //Metodo del menu
-    	crearProductor(){
-    		for (int i = 0; i < arrayP.length; i++) {
-    		      arrayP[i] = sc.nextLine();
-			}
-    	}
     }
 }
