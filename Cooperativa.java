@@ -27,20 +27,21 @@ public class Cooperativa{
         
         	if (puntero==1) {
 				System.out.println("Ha elegido crear un prodcutor");
+				crearProdcutor();
 			}else if(puntero==2) {
 				System.out.println("Ha elegido modificar un prodcutor");
 			}else if(puntero==3) {
 				System.out.println("Ha elegido eliminar un prodcutor");
-			} 
-        	 
-        	
-        	else {
-				return 0;
-			}
+			} else if (puntero != puntero)
+        	    System.out.println("te has equivocao bro");
         
 
         
         //Metodo del menu
-    	
+    	crearProductor(){
+    		for (int i = 0; i < arrayP.length; i++) {
+    		      arrayP[i] = sc.nextLine();
+			}
+    	}
     }
 }
