@@ -10,32 +10,40 @@ import java.util.Scanner; //importamos la clase scanner
 public abstract class Menus{
 	        
 	Scanner sc = new Scanner(System.in);
+	
 
 	public void menuProductores() {
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
+        System.out.println("Pulse 6 si desea volver");
+    	int puntero = sc.nextInt();        
     }
     public void menuProductos() {
     	System.out.println("Pulse 1 si desea crear un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar un producto");
+        System.out.println("Pulse 4 si desea volver");
     }
     public void menuDistribuidores() {
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
+        System.out.println("Pulse 4 si desea volver");
     }
     public void menuLogistica() {
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
+        System.out.println("Pulse 4 si desea volver");
+
     }
     public void menuCompra() {
     	System.out.println("Pulse 1 si desea añadir un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar algo de la cesta");
         System.out.println("Pulse 4 si desea pagar");
+        System.out.println("Pulse 5 si desea volver");
     }
     public void gestorMenu() {
     	System.out.print("inserte numero: ");
@@ -69,6 +77,9 @@ public abstract class Menus{
 			menuCompra();
 	        System.out.println("--------------------------------");
 	        break;
+		case 6:
+			System.out.println("volviendo al menu principal");
+			break;
 		default:
 			break;
 		}
