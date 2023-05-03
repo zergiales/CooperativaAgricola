@@ -1,19 +1,19 @@
-
+package logistica;
 /**
- * Write a description of class ProductorFederado here.
+ * Write a description of class PequeniaLogistica here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ProductorFederado extends Productores
+public class PequeniaLogistica extends Logistica
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class ProductorFederado
+     * Constructor for objects of class PequeniaLogistica
      */
-    public ProductorFederado()
+    public PequeniaLogistica()
     {
         // initialise instance variables
         x = 0;

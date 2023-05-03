@@ -1,3 +1,5 @@
+package consumidorFinal;
+import cooperativa.Cooperativa;
 
 /**
  * Write a description of class ConsumidorFinal here.

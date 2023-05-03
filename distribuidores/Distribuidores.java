@@ -1,21 +1,21 @@
+package distribuidores;
+import cooperativa.Cooperativa;
 
 /**
- * Clase GranProductor, como su propio indica, es para aquellos productores
- * que son grandes y cumple por tanto hectareas>5
+ * Write a description of class Distribuidores here.
  * 
- * 
- * @author Sergio
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class GranProductor extends Productores
+public class Distribuidores extends Cooperativa
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class GranProductor
+     * Constructor for objects of class Distribuidores
      */
-    public GranProductor()
+    public Distribuidores()
     {
         // initialise instance variables
         x = 0;

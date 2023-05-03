@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=PequenioProductor
+comment0.text=\r\n\ clase\ PequenioProductor\ que\ como\ su\ nombre\ indica,\ es\ una\ clase\ \r\n\ para\ moldear\ a\ aquellos\ productores\ que\ cumple\ el\ requisito\ de\ \r\n\ 5\ hectareas\ menor\ o\ igual\ a\ 5.\r\n\ \r\n\ @author\ Sergio\ Sanchez\r\n\ @version\ 1.0\r\n
+comment1.params=nombreP\ dni\ hectareas\ federado\ pequenio\ Producto
+comment1.target=PequenioProductor(java.lang.String,\ java.lang.String,\ int,\ boolean,\ boolean,\ java.lang.String)
+comment2.params=
+comment2.target=void\ setProductos()
+numComments=3

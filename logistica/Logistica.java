@@ -1,3 +1,4 @@
+package logistica;
 
 /**
  * Clase logistica
@@ -5,7 +6,7 @@
  * @author Sergio Sanchez 
  * @version (a version number or a date)
  */
-public class Logistica extends Cooperativa
+public class Logistica
 {
     // instance variables - replace the example below with your own
     private int x;
