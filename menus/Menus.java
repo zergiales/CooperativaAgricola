@@ -129,6 +129,12 @@ public abstract class Menus{
     }
     public void gestorMenu(int puntero) {        
         System.out.println("--------------------------------");
+        //si el puntero esta en cero se carga el principal , sino se carga los otros y tira esto normal 
+        if (condition) {
+			
+		} else {
+
+		}
         System.out.println("numero insertado: "+puntero);
         System.out.println("cargando menu...");
     	switch (puntero) {

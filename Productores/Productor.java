@@ -50,7 +50,7 @@ public class Productor{
         System.out.println(" ");
         
         System.out.print("¿Es el productor federado? (s/n): ");
-        char federadoChar = sc.nextLine().charAt(0);
+        char federadoChar = sc.nextLine();
         System.out.println(" ");
         
         boolean federado = (federadoChar == 's' || federadoChar == 'S');
