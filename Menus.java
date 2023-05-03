@@ -8,35 +8,102 @@ import java.util.Scanner; //importamos la clase scanner
  * @version 1.0
  */
 public abstract class Menus{
-	        
+	private int puntero;        
 	Scanner sc = new Scanner(System.in);
 	
+	public void menuPrincipal() {
+		System.out.println("Utilice las teclas numericas para desplazarse por los menus");
+        System.out.println("1. Menu Productores");
+        System.out.println("2. Menu Productos");
+        System.out.println("3. Menu Distribuidores");
+        System.out.println("4. Menu logistica");
+        System.out.println("5. Menu compra");
+    	System.out.print("inserte numero: ");
+        puntero = sc.nextInt();
+        if(puntero>=1) {
+        	gestorMenu(puntero);
+        }
+	}
 
 	public void menuProductores() {
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
-        System.out.println("Pulse 6 si desea volver");
-    	int puntero = sc.nextInt();        
+        System.out.println("Pulse 4 si desea volver");
+        System.out.print("inserte numero: ");
+    	puntero = sc.nextInt();
+    	if(puntero==1) {
+    		//funcion de crear productor
+    	}else if(puntero==2) {
+    		//funcion modifica productor
+    	}else if (puntero==3) {
+    		//funcion eliminar productor 
+    	}else if(puntero==4) {
+    		//volvemos al menu principal
+    		menuPrincipal();
+    	}
+    		
     }
     public void menuProductos() {
     	System.out.println("Pulse 1 si desea crear un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar un producto");
         System.out.println("Pulse 4 si desea volver");
+    	System.out.print("inserte numero: ");
+     	puntero = sc.nextInt();
+     	if(puntero==1) {
+     		//funcion de crear producto
+     	}else if(puntero==2) {
+     		//funcion modifica producto
+     	}else if (puntero==3) {
+     		//funcion eliminar producto 
+     	}else if(puntero==4) {
+     		//volvemos al menu principal
+     		menuPrincipal();
+     	}
     }
     public void menuDistribuidores() {
-    	System.out.println("Pulse 1 si desea crear un productor");
-        System.out.println("Pulse 2 si desea modificar un productor");
-        System.out.println("Pulse 3 si desea eliminar un productor");
-        System.out.println("Pulse 4 si desea volver");
+    	System.out.println("Pulse 1 si desea crear un distribuidor");
+        System.out.println("Pulse 2 si desea modificar un distribuidor");        
+        System.out.println("Pulse 3 si desea ver los distribuidores");
+        System.out.println("Pulse 4 si desea eliminar un eliminar un distribuidor");
+        System.out.println("Pulse 5 si desea volver");
+        System.out.print("inserte numero: ");
+    	puntero = sc.nextInt();
+    	if(puntero==1) {
+    		//funcion de crear distribuidor
+    	}else if(puntero==2) {
+    		//funcion modifica distribuidor
+    	}else if (puntero==3) {
+    		//funcion eliminar distribuidor
+    	}else if(puntero==4) {
+    		//ver distribuidores
+    	}else if(puntero==5) {
+    		//volver al menu principal
+    		menuPrincipal();
+    	}
+    	
     }
     public void menuLogistica() {
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
-        System.out.println("Pulse 4 si desea volver");
-
+        System.out.println("Pulse 4 si desea ver todos los productos");
+        System.out.println("Pulse 5 si desea volver");
+        System.out.print("inserte numero: ");
+    	puntero = sc.nextInt();
+    	if(puntero==1) {
+    		//funcion de crear d
+    	}else if(puntero==2) {
+    		//funcion modifica distribuidor
+    	}else if (puntero==3) {
+    		//funcion eliminar distribuidor
+    	}else if(puntero==4) {
+    		//ver distribuidores
+    	}else if(puntero==5) {
+    		//volver al menu principal
+    		menuPrincipal();
+    	}      
     }
     public void menuCompra() {
     	System.out.println("Pulse 1 si desea añadir un producto");
@@ -44,10 +111,22 @@ public abstract class Menus{
         System.out.println("Pulse 3 si desea eliminar algo de la cesta");
         System.out.println("Pulse 4 si desea pagar");
         System.out.println("Pulse 5 si desea volver");
+        System.out.print("inserte numero: ");
+    	puntero = sc.nextInt();
+        if(puntero==1) {
+    		//funcion de crear distribuidor
+    	}else if(puntero==2) {
+    		//funcion modifica distribuidor
+    	}else if (puntero==3) {
+    		//funcion eliminar distribuidor
+    	}else if(puntero==4) {
+    		//ver distribuidores
+    	}else if(puntero==5) {
+    		//volver al menu principal
+    		menuPrincipal();
+    	}       
     }
-    public void gestorMenu() {
-    	System.out.print("inserte numero: ");
-    	int puntero = sc.nextInt();        
+    public void gestorMenu(int puntero) {        
         System.out.println("--------------------------------");
         System.out.println("numero insertado: "+puntero);
         System.out.println("cargando menu...");
@@ -79,6 +158,7 @@ public abstract class Menus{
 	        break;
 		case 6:
 			System.out.println("volviendo al menu principal");
+			menuPrincipal();
 			break;
 		default:
 			break;

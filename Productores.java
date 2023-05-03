@@ -26,6 +26,30 @@ public class Productores extends Cooperativa{
 		this.pequenio = pequenio;
 	}
 	
+	private static String conversionF(boolean federado) {
+		if (federado ) {
+			return "no";
+		} else {
+			return "si";
+		}
+	}
+	private static String conversionP(boolean pequenio) {
+		if (pequenio ) {
+			return "no";
+		} else {
+			return "si";
+		}
+	}
+	//metodo para mostrar los productores
+	public String toString() {
+		return "nombre del productor: "+nombreP+" | "+
+				"Dni: "+dni+" "+
+				"numero de hectareas: "+hectareas+" | "+
+				"esta federado?: "+conversionF(federado)+" | "+
+				"pequenio productor?: "+conversionP(pequenio)+" | ";
+		
+	}
+	
 	
 
 }

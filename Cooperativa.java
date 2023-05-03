@@ -12,18 +12,18 @@ public class Cooperativa extends Menus{
         //objetos de las clase que hereda 
     	Scanner sc= new Scanner(System.in);        
     	Cooperativa coop = new Cooperativa(); //creamos instancia y llamamos al metodo de la clase abstracta
+    	///ESTO NO VALE REVISAR 
         System.out.print("---------Menu de cooperativa agricola--------"+
         " \n Inserte nombre de usuario:");
         String nombre = sc.nextLine();
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
-        System.out.println("Utilice las teclas numericas para desplazarse por los menus");
-        System.out.println("1. Menu Productores");
-        System.out.println("2. Menu Productos");
-        System.out.println("3. Menu Distribuidores");
-        System.out.println("4. Menu logistica");
-        System.out.println("5. Menu compra");
-        coop.gestorMenu();
+        coop.menuPrincipal();
+        Productores array []= {new Productores("Paco","4988539E",4,false,true),
+        new Productores("Hector","1234567E",6,false,false),new Productores("Alejandro","4556737E",5,true,true)};
         
+        for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
         }
 }
