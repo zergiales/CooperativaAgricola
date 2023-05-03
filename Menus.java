@@ -34,6 +34,7 @@ public abstract class Menus{
     	puntero = sc.nextInt();
     	if(puntero==1) {
     		//funcion de crear productor
+    		generarProductor();
     	}else if(puntero==2) {
     		//funcion modifica productor
     	}else if (puntero==3) {
