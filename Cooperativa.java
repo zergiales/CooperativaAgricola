@@ -1,8 +1,5 @@
-package cooperativa;
-import java.util.Scanner; //importamos la clase scanner
 
-import Productores.Productor;
-import menus.Menus;
+import java.util.Scanner; //importamos la clase scanner
 /**
  * Clase main desde la cual se gestiona la aplicacion de la cooperativa agricola
  * 
@@ -14,9 +11,13 @@ public class Cooperativa extends Menus{
     
     public static void main(String [] args){
         //objetos de las clase que hereda 
+        int puntero;
         Scanner sc= new Scanner(System.in);        
         Cooperativa coop = new Cooperativa(); //creamos instancia y llamamos al metodo de la clase abstracta
         Productor productor = new Productor("pepe", "1111111A", 4, false, true);
+        Distribuidores distribuidores = new Distribuidores();
+        Logistica logistica= new Logistica();
+        ConsumidorFinal consumidor= new ConsumidorFinal(); 
         System.out.print("---------Menu de cooperativa agricola--------"+
         " \n Inserte nombre de usuario:");
         String nombre = sc.nextLine();

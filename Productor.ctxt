@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Productor
+comment0.text=\r\n\ Clase\ productores\r\n\ -\ En\ esta\ clase\ vamos\ dar\ forma\ a\ la\ figura\ de\ prodcutores.\r\n\ -\ Un\ productor\ es\ cualquier\ actor\ que\ proporciona\ a\ la\ empresa\ un\ determinado\ \r\n\ \ \ producto,\r\n\ \r\n\ @author\ Sergio\ Sanchez\ \ \r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Productor()
+comment2.params=nombreP\ dni\ hectareas\ federado\ pequenio
+comment2.target=Productor(java.lang.String,\ java.lang.String,\ int,\ boolean,\ boolean)
+comment3.params=
+comment3.target=void\ crearProductor()
+comment4.params=federado
+comment4.target=java.lang.String\ conversionF(boolean)
+comment5.params=pequenio
+comment5.target=java.lang.String\ conversionP(boolean)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

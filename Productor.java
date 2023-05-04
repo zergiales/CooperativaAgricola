@@ -1,4 +1,4 @@
-package Productores;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Productor{
-		Scanner sc = new Scanner (System.in);
+    Scanner sc = new Scanner (System.in);
     // atributos que vamos a instanciar en el contructor
     private String nombreP ;
     private String dni;//para identificarlos (id)
@@ -45,18 +45,18 @@ public class Productor{
         String dni = sc.nextLine();
         System.out.println(" ");
         
-        System.out.print("Ingrese el número de hectáreas del productor: ");
+        System.out.print("Ingrese el nï¿½mero de hectï¿½reas del productor: ");
         int hectareas = sc.nextInt();
         System.out.println(" ");
         
-        System.out.print("¿Es el productor federado? (s/n): ");
-        char federadoChar = sc.nextLine();
+        System.out.print("ï¿½Es el productor federado? (s/n): ");
+        char federadoChar = sc.nextLine().charAt(0);
         System.out.println(" ");
         
         boolean federado = (federadoChar == 's' || federadoChar == 'S');
         System.out.println(" ");
         
-        System.out.print("¿Es el productor pequeño? (s/n): ");
+        System.out.print("ï¿½Es el productor pequeï¿½o? (s/n): ");
         char pequenioChar = sc.nextLine().charAt(0);
         boolean pequenio = (pequenioChar == 's' || pequenioChar == 'S');
         	

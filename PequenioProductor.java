@@ -1,4 +1,4 @@
-package Productores;
+
 /**
  * clase PequenioProductor que como su nombre indica, es una clase 
  * para moldear a aquellos productores que cumple el requisito de 

@@ -1,4 +1,4 @@
-package menus;
+
 import java.util.Scanner; //importamos la clase scanner
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
@@ -7,7 +7,7 @@ import java.util.Scanner; //importamos la clase scanner
  * @author Sergio 
  * @version 1.0
  */
-public abstract class Menus{
+public abstract class Menus {
 	protected int puntero;        
 	Scanner sc = new Scanner(System.in);
 	public void menuPrincipal() {
@@ -107,7 +107,7 @@ public abstract class Menus{
     	}      
     }
     public void menuCompra() {
-    	System.out.println("Pulse 1 si desea añadir un producto");
+    	System.out.println("Pulse 1 si desea aï¿½adir un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar algo de la cesta");
         System.out.println("Pulse 4 si desea pagar");
@@ -130,11 +130,6 @@ public abstract class Menus{
     public void gestorMenu(int puntero) {        
         System.out.println("--------------------------------");
         //si el puntero esta en cero se carga el principal , sino se carga los otros y tira esto normal 
-        if (condition) {
-			
-		} else {
-
-		}
         System.out.println("numero insertado: "+puntero);
         System.out.println("cargando menu...");
     	switch (puntero) {
@@ -154,7 +149,7 @@ public abstract class Menus{
 	        System.out.println("--------------------------------");
 	        break;
 		case 4:
-			System.out.println("abriendo menu de Logística");
+			System.out.println("abriendo menu de Logï¿½stica");
 			menuLogistica();
 	        System.out.println("--------------------------------");
 	        break;

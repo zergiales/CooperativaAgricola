@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Menus
+comment0.text=\r\n\ Clase\ abstracta\ donde\ tendremos\ los\ menus\ que\ iran\ siendo\r\n\ llamados\ desde\ la\ clase\ clase\ cooperativa.class\r\n\ \r\n\ @author\ Sergio\ \r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=void\ menuPrincipal()
+comment2.params=
+comment2.target=void\ menuProductores()
+comment3.params=
+comment3.target=void\ menuProductos()
+comment4.params=
+comment4.target=void\ menuDistribuidores()
+comment5.params=
+comment5.target=void\ menuLogistica()
+comment6.params=
+comment6.target=void\ menuCompra()
+comment7.params=puntero
+comment7.target=void\ gestorMenu(int)
+numComments=8

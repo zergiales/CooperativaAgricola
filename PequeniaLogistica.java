@@ -1,19 +1,19 @@
-package logistica;
+
 /**
- * Write a description of class GranLogistica here.
+ * Write a description of class PequeniaLogistica here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GranLogistica extends Logistica
+public class PequeniaLogistica extends Logistica
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class GranLogistica
+     * Constructor for objects of class PequeniaLogistica
      */
-    public GranLogistica()
+    public PequeniaLogistica()
     {
         // initialise instance variables
         x = 0;

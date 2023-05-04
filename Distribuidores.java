@@ -1,22 +1,23 @@
-package logistica;
 
 /**
- * Clase logistica
+ * Write a description of class Distribuidores here.
  * 
- * @author Sergio Sanchez 
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class Logistica
+public class Distribuidores
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Logistica
+     * Constructor for objects of class Distribuidores
      */
-    public Logistica()
+    public Distribuidores()
     {
         // initialise instance variables
         x = 0;
     }
+
+    
 }
