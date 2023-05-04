@@ -1,4 +1,8 @@
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,14 +15,13 @@ import java.util.Scanner;
  * @author Sergio Sanchez  
  * @version 1.0
  */
-public class Productor{
+public class Productor extends Menus{
     Scanner sc = new Scanner (System.in);
     // atributos que vamos a instanciar en el contructor
-    private String nombreP ;
+    private String nombreP;
     private String dni;//para identificarlos (id)
-    private int hectareas;// numero de hectareas 
-    boolean federado = false; //por defecto asumimos que es no es
-    boolean pequenio = true; //por defecto todos son pequenioos productores
+	private Date fecha;// cada año fiscal se determina la extension	
+	private double hectareas;// numero de hectareas 
     private ArrayList<Productor> productores = new ArrayList<Productor>();
            
     //constructor predefinido
@@ -26,74 +29,78 @@ public class Productor{
     	
     }
     // Constructor
-	public Productor(String nombreP, String dni, int hectareas, boolean federado, boolean pequenio) {
+	public Productor(String nombreP, String dni, double hectareas,Date fecha) {
 		this.nombreP = nombreP;
 		this.dni = dni;
 		this.hectareas = hectareas;
-		this.federado = federado;
-		this.pequenio = pequenio;
+		this.fecha = fecha;
+		Productos producto = new Productos(); //objetos generaods en la clase productos
 	}
 	//metodo para crear productores y listarlos
 	public void crearProductor() {
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
 		System.out.print("Nombre del productor: ");
-		String nombre = sc.nextLine();
+		nombreP = sc.nextLine();
 		System.out.println(" ");
         
 		System.out.print("Ingrese el DNI del productor: ");
-        String dni = sc.nextLine();
+        dni = sc.nextLine();
         System.out.println(" ");
         
-        System.out.print("Ingrese el nï¿½mero de hectï¿½reas del productor: ");
-        int hectareas = sc.nextInt();
-        System.out.println(" ");
+        System.out.println("producto");
         
-        System.out.print("ï¿½Es el productor federado? (s/n): ");
-        char federadoChar = sc.nextLine().charAt(0);
+        System.out.print("Indique el numero de hectareas del producto: ");
+        hectareas = sc.nextInt();
+        //asignarTipoProductor(hectareas);
         System.out.println(" ");
+		
+		System.out.println("inserte la fecha en el formato dd/MM/yyyy");
+		String fechaString = sc.next(); //metemos en string la fecha
+		//luego lo cambiamos el valor a date
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+		
+		//control de expceciones
+		try {
+			fecha = formato.parse(fechaString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.println(" ");
         
-        boolean federado = (federadoChar == 's' || federadoChar == 'S');
-        System.out.println(" ");
-        
-        System.out.print("ï¿½Es el productor pequeï¿½o? (s/n): ");
-        char pequenioChar = sc.nextLine().charAt(0);
-        boolean pequenio = (pequenioChar == 's' || pequenioChar == 'S');
+
+   
         	
-        Productor nuevoProductor = new Productor(nombre, dni, hectareas, federado, pequenio);
+        Productor nuevoProductor = new Productor(nombreP, dni, hectareas,fecha);
         productores.add(nuevoProductor);
         System.out.println("--------------------------------");
         System.out.println("Productor creado");
-        
         System.out.println("--------------------------------");
+        System.out.println("volviendo al menu principal");
+        menuPrincipal();
+	}
+	/*
+	private void asignarTipoProductor(hectareas) {
+	    	if (hectareas<=5) {
+				System.out.println(nombreP+" es un pequeño productor");
+				
+			} else {
+				System.out.println("gran productor");
 
-	}
+			}
+	    }
+		*/
 	
-	//para mostrarlo bien
-	private static String conversionF(boolean federado) {
-		if (federado ) {
-			return "no";
-		} else {
-			return "si";
-		}
-	}
-	private static String conversionP(boolean pequenio) {
-		if (pequenio ) {
-			return "no";
-		} else {
-			return "si";
-		}
-	}
 	//metodo para mostrar los productores
 	public String toString() {
 		return "nombre del productor: "+nombreP+" | "+
 				"Dni: "+dni+" "+
-				"numero de hectareas: "+hectareas+" | "+
-				"esta federado?: "+conversionF(federado)+" | "+
-				"pequenio productor?: "+conversionP(pequenio)+" | ";
+				"numero de hectareas: "+hectareas+" | ";
 		
 	}
 	
+	//metodo para asignar si el productor es pequeño, grande o esta federado
+		
 	
 
 }

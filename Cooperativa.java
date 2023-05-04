@@ -1,4 +1,4 @@
-
+import java.util.Date;
 import java.util.Scanner; //importamos la clase scanner
 /**
  * Clase main desde la cual se gestiona la aplicacion de la cooperativa agricola
@@ -14,7 +14,7 @@ public class Cooperativa extends Menus{
         int puntero;
         Scanner sc= new Scanner(System.in);        
         Cooperativa coop = new Cooperativa(); //creamos instancia y llamamos al metodo de la clase abstracta
-        Productor productor = new Productor("pepe", "1111111A", 4, false, true);
+        Productor productor = new Productor();        
         Distribuidores distribuidores = new Distribuidores();
         Logistica logistica= new Logistica();
         ConsumidorFinal consumidor= new ConsumidorFinal(); 
@@ -26,6 +26,7 @@ public class Cooperativa extends Menus{
         coop.menuPrincipal();
         System.out.println("puntero"+ coop.puntero);
         //metodo que gestiona los metodos de cada opcion del menu 
+        productor.crearProductor();
     }
     
     
