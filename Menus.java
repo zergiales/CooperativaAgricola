@@ -27,6 +27,7 @@ public abstract class Menus {
 	}
 
 	public void menuProductores() {
+		Productor productor = new Productor();
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea modificar un productor");
         System.out.println("Pulse 3 si desea eliminar un productor");
@@ -34,7 +35,8 @@ public abstract class Menus {
         System.out.print("inserte numero: ");
     	puntero = sc.nextInt();
     	if(puntero==1) {
-    		//funcion de crear productor
+			//funcion de crear productor
+    		productor.crearProductor();        
     	}else if(puntero==2) {
     		//funcion modifica productor
     	}else if (puntero==3) {
@@ -46,21 +48,28 @@ public abstract class Menus {
     		
     }
     public void menuProductos() {
+    	Productos producto = new Productos();
     	System.out.println("Pulse 1 si desea crear un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar un producto");
-        System.out.println("Pulse 4 si desea volver");
+    	System.out.println("Pulse 4 si desea ver todos los productos");
+        System.out.println("Pulse 5 si desea volver");
     	System.out.print("inserte numero: ");
      	puntero = sc.nextInt();
      	if(puntero==1) {
      		//funcion de crear producto
+     		producto.insertarProducto();
      	}else if(puntero==2) {
      		//funcion modifica producto
      	}else if (puntero==3) {
      		//funcion eliminar producto 
      	}else if(puntero==4) {
+     		//funcion para ver todos los productos
+     		producto.mostrarProductos();
+     	}else if(puntero ==5) {
      		//volvemos al menu principal
      		menuPrincipal();
+     		
      	}
     }
     public void menuDistribuidores() {

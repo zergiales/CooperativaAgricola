@@ -26,6 +26,8 @@ public class Cooperativa extends Menus{
         coop.menuPrincipal();
         System.out.println("puntero"+ coop.puntero);
         //metodo que gestiona los metodos de cada opcion del menu 
+        
+       
         productor.crearProductor();
     }
     
