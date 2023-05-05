@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  * Clase productores
  * - En esta clase vamos dar forma a la figura de prodcutores.
@@ -20,24 +19,24 @@ public class Productor extends Menus{
     // atributos que vamos a instanciar en el contructor
     private String nombreP;
     private String dni;//para identificarlos (id)
-	private Date fecha;// cada año fiscal se determina la extension	
+	private Date fecha;// cada aï¿½o fiscal se determina la extension	
 	private double hectareas;// numero de hectareas 
-    private ArrayList<Productor> productores = new ArrayList<Productor>();
-           
+    protected ArrayList<Productor> productores = new ArrayList<Productor>();
+    Productos producto = new Productos(); //objetos generaods en la clase productos
     //constructor predefinido
     public Productor() {
     	
     }
     // Constructor
-	public Productor(String nombreP, String dni, double hectareas,Date fecha) {
+	public Productor(String nombreP, String dni, double hectareas,Date fecha, Productos producto) {
 		this.nombreP = nombreP;
 		this.dni = dni;
 		this.hectareas = hectareas;
 		this.fecha = fecha;
-		Productos producto = new Productos(); //objetos generaods en la clase productos
+		this.producto = producto;
 	}
 	//metodo para crear productores y listarlos
-	public void crearProductor() {
+	public void crearProductor(){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
 		System.out.print("Nombre del productor: ");
@@ -48,29 +47,39 @@ public class Productor extends Menus{
         dni = sc.nextLine();
         System.out.println(" ");
         
-        System.out.println("producto");
-        
-        System.out.print("Indique el numero de hectareas del producto: ");
-        hectareas = sc.nextInt();
-        //asignarTipoProductor(hectareas);
-        System.out.println(" ");
-		
-		System.out.println("inserte la fecha en el formato dd/MM/yyyy");
-		String fechaString = sc.next(); //metemos en string la fecha
-		//luego lo cambiamos el valor a date
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
-		
-		//control de expceciones
-		try {
+        System.out.println("inserte la fecha en el formato dd/MM/yyyy");
+        String fechaString = sc.next(); //metemos en string la fecha
+        //luego lo cambiamos el valor a date
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        try {
 			fecha = formato.parse(fechaString);
 		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(" ");
+        System.out.println(" ");
         
-
-   
+        System.out.print("numero de productos que va a plantar: ");
+        int numProducto = sc.nextInt();
+        
+        for (int i = 0; i < numProducto; i++) {
         	
+        	System.out.print("producto "+ i+1 +" :");
+        	String nombreProducto= sc.nextLine();
+        	System.out.println(" ");
+//        	System.out.print("numero de hectareas que ocupa el producto "+ i+1 +" : ");
+//        	hectareas = sc.nextDouble();
+        	i++;
+		}
+        //se comprueba si existe en el array de productos de la clase Producto
+        /**
+        if(nombreProducto!=producto.getNombre()) {
+        	System.out.println("el producto no existe");
+        }else {}
+        */
+        //asignarTipoProductor(hectareas);
+       
+		
         Productor nuevoProductor = new Productor(nombreP, dni, hectareas,fecha);
         productores.add(nuevoProductor);
         System.out.println("--------------------------------");
@@ -79,19 +88,8 @@ public class Productor extends Menus{
         System.out.println("volviendo al menu principal");
         menuPrincipal();
 	}
-	/*
-	private void asignarTipoProductor(hectareas) {
-	    	if (hectareas<=5) {
-				System.out.println(nombreP+" es un pequeño productor");
-				
-			} else {
-				System.out.println("gran productor");
-
-			}
-	    }
-		*/
 	
-	//metodo para mostrar los productores
+	//metodo para mostrar los productores de una manera mas mejor
 	public String toString() {
 		return "nombre del productor: "+nombreP+" | "+
 				"Dni: "+dni+" "+
@@ -99,7 +97,6 @@ public class Productor extends Menus{
 		
 	}
 	
-	//metodo para asignar si el productor es pequeño, grande o esta federado
 		
 	
 

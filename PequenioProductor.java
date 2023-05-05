@@ -10,6 +10,7 @@
 public class PequenioProductor extends Productor{
     //pueden tener como maximo cinco productos diferentes
     String producto[]= new String[10];
+    protected boolean pequenio = true;
     //declaramos, instanciamos y damos el tamanio
     
     //constructor
@@ -17,11 +18,22 @@ public class PequenioProductor extends Productor{
         super();
         
     }
-    public void setProductos() {
-        for (int i = 0; i < producto.length; i++) {
-            producto[i]=sc.nextLine();
-        }
-    }
+    //metodo para 
+    
+    
+	public String[] getProducto() {
+		return producto;
+		
+	}
+
+	public void setProducto(String[] producto) {
+		this.producto = producto;
+		
+		  for (int i = 0; i < producto.length; i++) {
+	            this.producto[i]=sc.nextLine();
+	        }
+	}
+    
 
 
 

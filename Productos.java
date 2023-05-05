@@ -16,7 +16,7 @@ public class Productos extends Menus{
    public Productos() {}
    
    public Productos(String nombre, double rendimiento, double precio) {
-	   this.nombre = nombre;
+	   this.setNombre(nombre);
 	   this.rendimiento = rendimiento;// x hectarea
 	   this.precio = precio;//x kg
    }
@@ -30,7 +30,7 @@ public class Productos extends Menus{
 		System.out.println("Ha elegido usted insertar un producto");
 		
 		System.out.print("Nombre del producto: ");
-		nombre = sc.nextLine();
+		setNombre(sc.nextLine());
 		System.out.println(" ");
        
 		System.out.print("indique el precio del kilogramo: ");
@@ -40,9 +40,8 @@ public class Productos extends Menus{
        rendimiento = sc.nextDouble();
 
        //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(nombre, precio,rendimiento);
+       Productos nuevoProducto = new Productos(getNombre(), precio,rendimiento);
        listaProductos.add(nuevoProducto);
-
 
        System.out.println("--------------------------------");
        System.out.println("Producto insertado");
@@ -52,16 +51,25 @@ public class Productos extends Menus{
 	}
     
    public void mostrarProductos() {
-	   for (Productos producto : listaProductos) {
-		    listaProductos.toString();
-		}
+	  for (int i = 0; i < listaProductos.size(); i++) {
+		  Productos e = listaProductos.get(i);
+		System.out.println(e);
+	}
    }
  //metodo para mostrar los productores
  	public String toString() {
- 		return "nombre del producto: "+nombre+"  | "+
+ 		return "nombre del producto: "+getNombre()+"  | "+
  				"precio el kilogramo: "+precio+"€ | "+
  				"rendimiento por hectarea: "+rendimiento+" | ";
  		
  	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
  	
 }
