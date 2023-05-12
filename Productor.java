@@ -1,10 +1,8 @@
 
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+import java.text.*;
+
 /**
  * Clase productores
  * - En esta clase vamos dar forma a la figura de prodcutores.
@@ -17,33 +15,43 @@ import java.util.Scanner;
 public class Productor extends Menus{
     Scanner sc = new Scanner (System.in);
     // atributos que vamos a instanciar en el contructor
-    private String nombreP;
+    private String nombreProductor;
     private String dni;//para identificarlos (id)
-	private Date fecha;// cada aï¿½o fiscal se determina la extension	
-	private double hectareas;// numero de hectareas 
-    protected ArrayList<Productor> productores = new ArrayList<Productor>();
-    Productos producto = new Productos(); //objetos generaods en la clase productos
+	private Date fecha;// cada año fiscal se determina la extension	
+	private double hectareasN;// numero de hectareas 
+	//productos
+	private String nombreP;
+	private double hectareasP;
+	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();//asi tendremos una lista de productos en cada productor
     //constructor predefinido
     public Productor() {
     	
     }
-    // Constructor
-	public Productor(String nombreP, String dni, double hectareas,Date fecha, Productos producto) {
-		this.nombreP = nombreP;
+   
+    //constructor con parametros
+    public Productor(String nombreProductor, String dni, Date fecha, double hectareasN,
+			ArrayList<Productor> listaProductos) {
+   	
+		this.nombreProductor = nombreProductor;
 		this.dni = dni;
-		this.hectareas = hectareas;
 		this.fecha = fecha;
-		this.producto = producto;
+		this.hectareasN = hectareasN;//es igual al numero de hectareas que vamos guardando en total
 	}
+	
+	public Productor(String nombreP, double hectareasP) {
+		this.nombreP = nombreP;
+		this.hectareasP = hectareasP;
+	};
+
 	//metodo para crear productores y listarlos
-	public void crearProductor(){
+	public void crearProductor(ArrayList<Productor> productores){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
 		System.out.print("Nombre del productor: ");
-		nombreP = sc.nextLine();
+		nombreProductor = sc.nextLine();
 		System.out.println(" ");
         
-		System.out.print("Ingrese el DNI del productor: ");
+		System.out.print("DNI: ");
         dni = sc.nextLine();
         System.out.println(" ");
         
@@ -54,7 +62,6 @@ public class Productor extends Menus{
         try {
 			fecha = formato.parse(fechaString);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         System.out.println(" ");
@@ -64,26 +71,24 @@ public class Productor extends Menus{
         
         for (int i = 0; i < numProducto; i++) {
         	
-        	System.out.print("producto "+ i+1 +" :");
-        	String nombreProducto= sc.nextLine();
-        	System.out.println(" ");
-//        	System.out.print("numero de hectareas que ocupa el producto "+ i+1 +" : ");
-//        	hectareas = sc.nextDouble();
-        	i++;
+        	System.out.print("inserte producto "+ (i+1) +" :");
+        	nombreP= sc.nextLine();
+        	
+        	System.out.print("numero de hectareas que ocupa el producto "+ (i+1) +" : ");
+        	hectareasP= sc.nextDouble();
+        	
+        	//añadimos el numero de hectareas en esta variable
+        	hectareasN+=hectareasP;
+        	//creamos un objeto producto que guarda los productos y su rendimiento por hectareas
+        	Productor listado= new Productor(nombreP, hectareasP);
+            listaProductos.add(listado);
 		}
-        //se comprueba si existe en el array de productos de la clase Producto
-        /**
-        if(nombreProducto!=producto.getNombre()) {
-        	System.out.println("el producto no existe");
-        }else {}
-        */
-        //asignarTipoProductor(hectareas);
-       
-		
-        Productor nuevoProductor = new Productor(nombreP, dni, hectareas,fecha);
+        
+        Productor nuevoProductor = new Productor(nombreP,dni,fecha,hectareasN,listaProductos);
         productores.add(nuevoProductor);
         System.out.println("--------------------------------");
-        System.out.println("Productor creado");
+        System.out.println("****Productor creado***");
+        System.out.println(productores.get(0));
         System.out.println("--------------------------------");
         System.out.println("volviendo al menu principal");
         menuPrincipal();
@@ -91,11 +96,27 @@ public class Productor extends Menus{
 	
 	//metodo para mostrar los productores de una manera mas mejor
 	public String toString() {
-		return "nombre del productor: "+nombreP+" | "+
-				"Dni: "+dni+" "+
-				"numero de hectareas: "+hectareas+" | ";
+		String resultado="";
+		//bucle for para recorrer el producto
+		
+		   for (int i = 0; i < listaProductos.size(); i++) {
+	            resultado += listaProductos.get(i);
+	        }
+
+		return "nombre del productor:"+nombreP+" |\n "+
+				"Dni: "+dni+" |\n "+
+				"año fiscal: "+fecha+"|\n "+
+				"productos: "+resultado+  "|\n "+
+				listaProductos;
 		
 	}
+	
+	//metodo para modificar el productor
+	public void modificarProductor() {}
+	
+	//metodo para eliminar el productor
+	public void eliminarProductor() {}
+	
 	
 		
 	

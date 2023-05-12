@@ -8,20 +8,20 @@ import java.util.ArrayList;
  */
 public class Productos extends Menus{
    private String nombre;
-   private double rendimiento;
    private double precio;
-   ArrayList<Productos> listaProductos = new ArrayList<>();
-
+   private double rendimiento;
+   private boolean pedecedero = false;
 
    public Productos() {}
    
-   public Productos(String nombre, double rendimiento, double precio) {
-	   this.setNombre(nombre);
-	   this.rendimiento = rendimiento;// x hectarea
+   public Productos(String nombre, double precio, double rendimiento, boolean pedecedero) {
+	   this.nombre = nombre;
 	   this.precio = precio;//x kg
+	   this.rendimiento = rendimiento;// x hectarea
+	   this.pedecedero = pedecedero; //para la clase logistica
    }
    
-
+   
    
 
    
@@ -36,32 +36,43 @@ public class Productos extends Menus{
 		System.out.print("indique el precio del kilogramo: ");
 		precio = sc.nextDouble();
 		
-       System.out.print("inserte el rendimiento por hectaerea del producto: ");
+       System.out.print("inserte el rendimiento por hectarea del producto: ");
        rendimiento = sc.nextDouble();
 
+       System.out.print("pedecedero?: ");
+       pedecedero = sc.nextBoolean();
        //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(getNombre(), precio,rendimiento);
-       listaProductos.add(nuevoProducto);
+       Productos nuevoProducto = new Productos(nombre, precio,rendimiento, pedecedero);
+       productos.add(nuevoProducto);
 
        System.out.println("--------------------------------");
-       System.out.println("Producto insertado");
+       System.out.println("****Producto insertado****");
+       System.out.println(productos);
        System.out.println("--------------------------------");
        System.out.println("volviendo al menu principal");
        menuPrincipal();
 	}
     
    public void mostrarProductos() {
-	  for (int i = 0; i < listaProductos.size(); i++) {
-		  Productos e = listaProductos.get(i);
+	  for (int i = 0; i < productos.size(); i++) {
+		  Productos e = productos.get(i);
 		System.out.println(e);
 	}
    }
  //metodo para mostrar los productores
  	public String toString() {
- 		return "nombre del producto: "+getNombre()+"  | "+
- 				"precio el kilogramo: "+precio+"€ | "+
- 				"rendimiento por hectarea: "+rendimiento+" | ";
+ 		return "nombre del producto: "+nombre+"  |\n "+
+ 				"precio el kilogramo: "+precio+"€ |\n "+
+ 				"rendimiento por hectarea: "+rendimiento+" |\n "+
+ 				"pedecedero: "+pedecedero;
  		
+ 	}
+ 	public String toStringProductos() {
+ 		String txt="";
+ 		for (Productos productos : productos) {
+			
+		}
+ 		return
  	}
 
 	public String getNombre() {

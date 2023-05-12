@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner; //importamos la clase scanner
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
@@ -8,7 +9,17 @@ import java.util.Scanner; //importamos la clase scanner
  * @version 1.0
  */
 public abstract class Menus {
-	protected int puntero;        
+	//arrayList
+	protected ArrayList<Productor> productores = new ArrayList<Productor>();    
+	protected ArrayList<Productos> productos = new ArrayList<>();
+	
+	//objetos
+	Distribuidores distribuidores = new Distribuidores();
+    Logistica logistica= new Logistica();
+    ConsumidorFinal consumidor= new ConsumidorFinal();
+	protected int puntero;    
+	
+	
 	Scanner sc = new Scanner(System.in);
 	public void menuPrincipal() {
 		System.out.println("Utilice las teclas numericas para desplazarse por los menus");
@@ -36,7 +47,7 @@ public abstract class Menus {
     	puntero = sc.nextInt();
     	if(puntero==1) {
 			//funcion de crear productor
-    		productor.crearProductor();        
+    		productor.crearProductor(productores);        
     	}else if(puntero==2) {
     		//funcion modifica productor
     	}else if (puntero==3) {
@@ -116,7 +127,7 @@ public abstract class Menus {
     	}      
     }
     public void menuCompra() {
-    	System.out.println("Pulse 1 si desea aï¿½adir un producto");
+    	System.out.println("Pulse 1 si desea añaadir un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar algo de la cesta");
         System.out.println("Pulse 4 si desea pagar");
