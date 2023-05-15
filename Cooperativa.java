@@ -10,13 +10,13 @@ import java.util.Scanner; //importamos la clase scanner
 public class Cooperativa extends Menus{
     public static void main(String [] args){    	
     	//objetos productor
-//    	Productor productor1 = new Productor();
-//    	Productor prodcutor2 = new Productor();
-//    	Productor prodcutor3 = new Productor();
-//    	//objeto productos 
-//    	Productos producto1 = new Productos("tomate", 4,1,false);
-//    	Productos producto2 = new Productos("alcachofa", 5.99,0.1,true);
-//    	Productos producto3 = new Productos("cebolla", 3.01,0.1, true);
+    	Productor productor1 = new Productor();
+
+    	//objeto productos 
+    	Productos producto1 = new Productos("tomate", 4,1,false);
+    	Productos producto2 = new Productos("alcachofa", 5.99,0.1,true);
+    	Productos producto3 = new Productos("cebolla", 3.01,0.1, true);
+    	
     	
     	
     	Scanner sc= new Scanner(System.in);        
@@ -30,7 +30,6 @@ public class Cooperativa extends Menus{
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
         //metodo que gestiona los metodos de cada opcion del menu
-        coop.menuProductores();
         coop.menuPrincipal();
         
         

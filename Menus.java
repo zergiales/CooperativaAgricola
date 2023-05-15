@@ -11,16 +11,16 @@ import java.util.Scanner; //importamos la clase scanner
 public abstract class Menus {
 	//arrayList
 	protected ArrayList<Productor> productores = new ArrayList<Productor>();    
-	protected ArrayList<Productos> productos = new ArrayList<>();
-	
+	protected ArrayList<Productos> productos = new ArrayList<Productos>();
+	protected ArrayList<Logistica> logistica = new ArrayList<Logistica>();
 	//objetos
 	Distribuidores distribuidores = new Distribuidores();
-    Logistica logistica= new Logistica();
     ConsumidorFinal consumidor= new ConsumidorFinal();
-	protected int puntero;    
-	
+	protected int puntero; //con el cual nos vamos moviendo
 	
 	Scanner sc = new Scanner(System.in);
+	
+	//menu principal
 	public void menuPrincipal() {
 		System.out.println("Utilice las teclas numericas para desplazarse por los menus");
         System.out.println("1. Menu Productores");
@@ -36,7 +36,7 @@ public abstract class Menus {
         	System.out.println("numero incorrecto");
         }
 	}
-
+	//menu productores
 	public void menuProductores() {
 		Productor productor = new Productor();
     	System.out.println("Pulse 1 si desea crear un productor");
@@ -58,6 +58,7 @@ public abstract class Menus {
     	}
     		
     }
+	//menu de productos
     public void menuProductos() {
     	Productos producto = new Productos();
     	System.out.println("Pulse 1 si desea crear un producto");

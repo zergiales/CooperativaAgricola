@@ -1,22 +1,27 @@
-
-
 /**
  * Clase logistica
- * 
+ *  - los actores principales para proporcionar
+ *  a los clientes finales y distribuidores los productos
+ *  disponibles en la cooperativa
  * @author Sergio Sanchez 
- * @version (a version number or a date)
+ * @version (1.0
  */
-public class Logistica
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Logistica extends Menu{
+    
+    private String empresa;
+    private int distancia;
+    private boolean perecedero;
 
-    /**
-     * Constructor for objects of class Logistica
-     */
-    public Logistica()
-    {
-        // initialise instance variables
-        x = 0;
-    }
+    //constructor sin parametros
+    public Logistica(){}
+
+	public Logistica(String empresa, int distancia, boolean perecedero) {
+		super();
+		this.empresa = empresa;
+		this.distancia = distancia;
+		this.perecedero = perecedero;
+	}
+    
+    //constructor con parametros
+    
 }
