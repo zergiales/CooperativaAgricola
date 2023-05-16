@@ -8,6 +8,8 @@ import java.util.Scanner; //importamos la clase scanner
  * @version 1.0 
  */
 public class Cooperativa extends Menus{
+	final int limite = 0;
+	final int anio = 0;
     public static void main(String [] args){    	
     	
 //    	//ejemplos de listas de productos
@@ -29,7 +31,6 @@ public class Cooperativa extends Menus{
     	
     	Scanner sc= new Scanner(System.in);        
         
-        
         Cooperativa coop = new Cooperativa(); //creamos instancia y llamamos al metodo de la clase abstracta
         
         System.out.print("---------Menu de cooperativa agricola--------"+
@@ -37,6 +38,7 @@ public class Cooperativa extends Menus{
         String nombre = sc.nextLine();
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
+        coop.general();//establecemos año fiscal y el limite de hectareas
         //metodo que gestiona los metodos de cada opcion del menu
         coop.menuPrincipal();
         

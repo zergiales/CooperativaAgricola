@@ -161,52 +161,68 @@ public class Productor extends Menus{
         }
         //arraylist donde metemos a todos los productores
         Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getFecha(),getHectareasN(),listaProductos);
-        productores.add(nuevoProductor);
+//        productores.add(nuevoProductor);
         
         /**
          * si la suma total de las hectareas que posee es <5 es pequeño productor,
          * en cambio si son mas de cinco se le asigna al gran productor.
+         * 
+         * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
+         * funcion a la condición del numero de hectareas
          */
-        if (getHectareasN()>5) {
+        if (getHectareasN()>=limite) {
         	granProductor.add(nuevoProductor);
+            productores.add(nuevoProductor);
+        	System.out.println("asignado al grupo de grandes productores");
         	
-        } else if(getHectareasN()<=5) {
-        	System.out.println("esta federado s o no ?:");
-        	
-        	String entrada = sc.nextLine();
-            //transformamos el s o n en valor booleano  
-            if(entrada.toLowerCase().equals("n")) {
-             	setFederado(false);
-             	pequenioProductor.add(nuevoProductor); //agregamos
-             }else if(entrada.toLowerCase().equals("s")) {
-             	setFederado(true);
-             } else if(entrada.toLowerCase().equals("n") || entrada.toLowerCase().equals("s")) {
-             	System.out.println("inserte un dato valido");
-             	entrada= sc.nextLine();
-             }
+        } else if(getHectareasN()<limite) {
+        	String entrada;
+        	boolean entradaValida = false;
+        	System.out.println("federado ? (s/n): ");
+        	while (!entradaValida) {
+        	    entrada = sc.nextLine();
+
+        	    if (entrada.toLowerCase().equals("n")) {
+        	        setFederado(false);
+        	        System.out.println("------------------------------------------");
+        	        System.out.println("asignado al grupo de pequenios productores");
+        	        productores.add(nuevoProductor);
+        	        pequenioProductor.add(nuevoProductor);
+        	        entradaValida = true;
+        	    } else if (entrada.toLowerCase().equals("s")) {
+        	        setFederado(true);
+        	        System.out.println("------------------------------------------");
+        	        System.out.println("asignado al grupo de productores federados");
+        	        productores.add(nuevoProductor);
+        	        federadoProductor.add(nuevoProductor);
+        	        entradaValida = true;
+        	    }
+        	}
+
         }
         System.out.println("--------------------------------");
         System.out.println("****Productor creado***");
         // Imprimir la lista de productos
-        System.out.println(nuevoProductor.toString());
-        
+        System.out.println(nuevoProductor.toString());        
         for (Productor p : listaProductos) {
           System.out.println(p.nombreP + " - " + p.hectareasP + " ha");
         }
+        
         System.out.println("--------------------------------");
         System.out.println("volviendo al menu principal");
+        System.out.println("--------------------------------");
         menuPrincipal();
 	}
 		
 		
 
-	//metodo para mostrar prodcutor añadido
+	//metodo para mostrar productor añadido
 	public String toString() {		
 
-		return "nombre del productor:"+nombreProductor+" |\n "+
-				"Dni: "+dni+" |\n "+
-				"fecha fiscal: "+fecha.getYear()+"|\n "+
-				"hectareas totales: "+hectareasN+"|\n "+				
+		return "nombre del productor:"+getNombreProductor()+" |\n "+
+				"Dni: "+getDni()+" |\n "+
+				"fecha fiscal: "+getFecha().getDay()+"|\n "+
+				"hectareas totales: "+getHectareasN()+"|\n "+				
 				"listado de prodcutos y hectareas: ";
 		
 	}
@@ -228,9 +244,13 @@ public class Productor extends Menus{
 	
 	//antes de eliminar o modificar mostramos todos
 	public void mostrarProductor() {
+		if (productores.isEmpty()) {
+			System.out.println("vacio");
+		}else {
 	       for (Productor productores : productores) {
 	           System.out.println(productores.toString());
 	         }
+		}
 	}
 	
 

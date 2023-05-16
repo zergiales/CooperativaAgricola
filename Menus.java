@@ -28,9 +28,23 @@ public abstract class Menus {
 	protected int puntero; //con el cual nos vamos moviendo
 	
 	Scanner sc = new Scanner(System.in);
-	
+	int limite;
+	int anio;
+	//general
+	public void general() {
+        System.out.println("---------------------------");
+		System.out.println("establece un anio fiscal:");
+        anio =sc.nextInt();
+        System.out.println("duranto el anio "+anio+" el limite es: ");
+        limite = sc.nextInt();
+        System.out.println(" anio fiscal: "+anio+" | hectareas: "+limite+" ha");
+        System.out.println("---------------------------");
+        menuPrincipal();
+	}
 	//menu principal
 	public void menuPrincipal() {
+		System.out.println(anio);
+		System.out.println(limite);
 		System.out.println("Utilice las teclas numericas para desplazarse por los menus");
         System.out.println("1. Menu Productores");
         System.out.println("2. Menu Productos");
@@ -59,6 +73,7 @@ public abstract class Menus {
     		productor.crearProductor(productores);        
     	}else if(puntero==2) {
     		//funcion modifica productor
+    		productor.mostrarProductor();
     	}else if (puntero==3) {
     		//funcion eliminar productor 
     	}else if(puntero==4) {

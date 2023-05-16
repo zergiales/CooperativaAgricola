@@ -4,13 +4,18 @@
  *  en resumen un productor federado es un pequeo productor con un nombre de una
  *  federacion
  * 
- * @author 	Sergio Sanchez Lopez 
+ * @author     Sergio Sanchez Lopez 
  * @version 1.0
  */
-public class ProductorFederado extends Productor
-{
-	Productos productos= new Productos(); //para llamar al array de la clase productos
-    String federado[]= new String[10]; //para tener almacenados  los prodcutores que estan federados
+public class ProductorFederado extends PequenioProductor{
+    public ProductorFederado(String nombreP, String dni, int hectareas, boolean federado, boolean pequenio,
+			String Producto) {
+		super(nombreP, dni, hectareas, federado, pequenio, Producto);
+		// TODO Auto-generated constructor stub
+	}
+	protected String nombreFeredacion;
+    protected String federado[]= new String[10]; //para tener almacenados  los prodcutores que estan federados
+    
 
    
 }
