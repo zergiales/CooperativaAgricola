@@ -23,7 +23,9 @@ public class Productor extends Menus{
 	private double hectareasP;
 	//lista de productos
 	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();
-    //constructor predefinido
+
+	
+	//constructor predefinido
     public Productor() {}
    
     //constructor con parametros
@@ -41,7 +43,6 @@ public class Productor extends Menus{
     	this.hectareasP = hectareasP;
     };
 
-	//metodo para crear productores
 	private String getNombreProductor() {
 		return nombreProductor;
 	}
@@ -94,15 +95,27 @@ public class Productor extends Menus{
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
 		System.out.print("Nombre del productor: ");
-		nombreProductor = sc.nextLine();
-		setNombreProductor(nombreProductor); //probar
+		setNombreProductor(sc.nextLine());
+		System.out.println(" ");
+        System.out.println("Nota: 8 digitos y 1 letra mayuscula");
+		System.out.print("DNI:");
+		//validamos el dni
+		String validaDni = sc.nextLine();
+		if (validaDni.length()==9) {
+			// Extraer los dígitos y la letra del DNI
+	        String digitos = validaDni.substring(0, 8);
+	        char letra = validaDni.toUpperCase().charAt(8);
+	     // Verificar que los primeros 8 caracteres sean dígitos
+	        if (!digitos.matches("[0-9]+")) {
+	            System.out.println("error");
+	            menuProductos(); //si te equivocas te manda de nuevo
+	        }else {setDni(validaDni);}
+	        
+		}else{
+			System.out.println("inserte el formato correcto:");
+			validaDni = sc.nextLine();}
 		System.out.println(" ");
         
-		System.out.print("DNI: ");
-        dni = sc.nextLine();
-        System.out.println(" ");
-        
-        System.out.println("inserte la fecha en el formato dd/MM/yyyy");
         
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
         formato.setLenient(false);
@@ -112,7 +125,7 @@ public class Productor extends Menus{
             String fechaStr = sc.nextLine();
 
             try {
-              fecha = formato.parse(fechaStr);
+              setFecha(formato.parse(fechaStr));
               break;
             } catch (Exception e) {
               System.out.println("Fecha inválida. Intente de nuevo.");
@@ -127,18 +140,19 @@ public class Productor extends Menus{
         for (int i = 0; i < numProducto; i++) {
           // Pedir el nombre del producto
           System.out.println("Ingrese el nombre del producto " + (i+1) + ":");
-          String nombreP = sc.next();
+          setNombreP(sc.next());
 
           // Pedir el número de hectáreas que ocupa el producto
           System.out.println("Ingrese el numero de hectáreas " + (i+1) + ":");
-          double hectareasP = sc.nextDouble();
+          setHectareasP(sc.nextDouble());
+          
           hectareasN+=hectareasP;
           // Crear un objeto Productor con los datos ingresados y agregarlo a la lista
           Productor listado = new Productor(nombreP, hectareasP);
           listaProductos.add(listado);
         }
         //arraylist donde metemos a todos los productores
-        Productor nuevoProductor = new Productor(nombreProductor,dni,fecha,hectareasN,listaProductos);
+        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getFecha(),getHectareasN(),listaProductos);
         productores.add(nuevoProductor);
 //        if (hectareasN>5) {
 //        	productorGrande.add(nuevoProductor);
@@ -164,6 +178,7 @@ public class Productor extends Menus{
 	}
 		
 		
+
 	//metodo para mostrar prodcutor añadido
 	public String toString() {		
 
@@ -177,7 +192,15 @@ public class Productor extends Menus{
 	
 	
 	//metodo para modificar el productor
-	public void modificarProductor() {}
+	public void modificarProductor() {
+		//primero mostramos el productor que hay con sus datos
+		int i = 0;  
+		for (Productor productores : productores) {
+	           System.out.println("En la posicion "+ i + ": ");
+	           System.out.println(productores.toString());
+	           i++;
+	         }
+	}
 	
 	//metodo para eliminar el productor
 	public void eliminarProductor() {}

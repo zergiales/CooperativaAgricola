@@ -9,9 +9,17 @@ import java.util.Scanner; //importamos la clase scanner
  */
 public class Cooperativa extends Menus{
     public static void main(String [] args){    	
+    	
+    	//ejemplos de listas de productos
+    	Productor listEj1 = new Productor("Producto 1", 10.5);
+    	Productor listEj2 = new Productor("Producto 2", 8.2);
+    	Productor listEj3 = new Productor("Producto 3", 12.7);
     	//objetos productor
-    	Productor productor1 = new Productor();
+    	Productor productor1 = new Productor("pepe","12345678E","22/06/2023",6,listEj1);
 
+    	listaProductos.add(listEj1);
+    	listaProductos.add(listEj2);
+    	listaProductos.add(listEj3);
     	//objeto productos 
     	Productos producto1 = new Productos("tomate", 4,1,false);
     	Productos producto2 = new Productos("alcachofa", 5.99,0.1,true);
