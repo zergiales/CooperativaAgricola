@@ -9,11 +9,18 @@ import java.util.Scanner; //importamos la clase scanner
  * @version 1.0
  */
 public abstract class Menus {
-	//arrayList
+	//arrayList productor general
 	protected ArrayList<Productor> productores = new ArrayList<Productor>();
-	protected ArrayList<Productor> productorGrande = new ArrayList<Productor>();    
-
+	//lista de productores que son grandes
+	protected ArrayList<Productor> granProductor = new ArrayList<Productor>();
+	//lista de productores que son pequeños
+	protected ArrayList<Productor> pequenioProductor = new ArrayList<Productor>();
+	//lista de productores que son federados
+	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
+	
+	//arraylist productos
 	protected ArrayList<Productos> productos = new ArrayList<Productos>();
+	//arraylist logistica
 	protected ArrayList<Logistica> logistica = new ArrayList<Logistica>();
 	//objetos
 	Distribuidores distribuidores = new Distribuidores();

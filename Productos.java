@@ -76,7 +76,7 @@ public class Productos extends Menus{
         	setPedecedero(true);
         }else if(entrada.toLowerCase().equals("s")) {
         	setPedecedero(false);
-        } else if(entrada.toLowerCase().equals("n") | entrada.toLowerCase().equals("s")) {
+        } else if(entrada.toLowerCase().equals("n") || entrada.toLowerCase().equals("s")) {
         	System.out.println("inserte un dato valido");
         	entrada= sc.nextLine();
         }

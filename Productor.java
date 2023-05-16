@@ -23,8 +23,8 @@ public class Productor extends Menus{
 	private double hectareasP;
 	//lista de productos
 	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();
-
-	
+	//valor booleano para saber si esta federado o no
+	private boolean federado=false;
 	//constructor predefinido
     public Productor() {}
    
@@ -91,6 +91,14 @@ public class Productor extends Menus{
 		this.hectareasP = hectareasP;
 	}
 
+	private boolean isFederado() {
+		return federado;
+	}
+
+	private void setFederado(boolean federado) {
+		this.federado = federado;
+	}
+
 	public void crearProductor(ArrayList<Productor> productores){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
@@ -154,16 +162,29 @@ public class Productor extends Menus{
         //arraylist donde metemos a todos los productores
         Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getFecha(),getHectareasN(),listaProductos);
         productores.add(nuevoProductor);
-//        if (hectareasN>5) {
-//        	productorGrande.add(nuevoProductor);
-//        } else(hectareasN<5) {
-//        	productorPequenio.add(nuevoProductor);
-//        }
         
         /**
          * si la suma total de las hectareas que posee es <5 es pequeño productor,
          * en cambio si son mas de cinco se le asigna al gran productor.
          */
+        if (getHectareasN()>5) {
+        	granProductor.add(nuevoProductor);
+        	
+        } else if(getHectareasN()<=5) {
+        	System.out.println("esta federado s o no ?:");
+        	
+        	String entrada = sc.nextLine();
+            //transformamos el s o n en valor booleano  
+            if(entrada.toLowerCase().equals("n")) {
+             	setFederado(false);
+             	pequenioProductor.add(nuevoProductor); //agregamos
+             }else if(entrada.toLowerCase().equals("s")) {
+             	setFederado(true);
+             } else if(entrada.toLowerCase().equals("n") || entrada.toLowerCase().equals("s")) {
+             	System.out.println("inserte un dato valido");
+             	entrada= sc.nextLine();
+             }
+        }
         System.out.println("--------------------------------");
         System.out.println("****Productor creado***");
         // Imprimir la lista de productos
