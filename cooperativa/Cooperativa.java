@@ -1,6 +1,9 @@
+package cooperativa;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner; //importamos la clase scanner
+
+import menus.Menus;
 /**
  * Clase main desde la cual se gestiona la aplicacion de la cooperativa agricola
  * 

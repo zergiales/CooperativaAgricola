@@ -1,6 +1,13 @@
+package menus;
 
-import java.util.ArrayList;
-import java.util.Scanner; //importamos la clase scanner
+import java.text.SimpleDateFormat;
+import java.util.*; //importamos la clase scanner
+
+import Productores.Productor;
+import consumidorFinal.ConsumidorFinal;
+import distribuidores.Distribuidores;
+import logistica.Logistica;
+import productos.Productos;
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
  * llamados desde la clase clase cooperativa.class
@@ -28,19 +35,50 @@ public abstract class Menus {
 	protected int puntero; //con el cual nos vamos moviendo
 	
 	Scanner sc = new Scanner(System.in);
-	int limite;
-	int anio;
+	protected int limite;
+	protected int anio;
+	 final int CONSTANTE1 = anio;
+	 final int CONSTANTE2=limite;
+	protected int getAnio() {
+		return anio;
+	}
+	protected void setAnio(int anio) {
+		this.anio = anio;
+	}
+	 
+    // Crear una instancia de Calendar
+    Calendar calendar = Calendar.getInstance();
+    
+    // Obtener el objeto Date correspondiente al año
+    Date fecha = calendar.getTime();
+    
+    // Imprimir la fecha
 	//general
 	public void general() {
         System.out.println("---------------------------");
-		System.out.println("establece un anio fiscal:");
-        anio =sc.nextInt();
+        while (true) {
+            System.out.println("Establece un año fiscal:");
+            anio = sc.nextInt();
+            
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy"); 
+            formato.setLenient(false);
+            try {
+                fecha = formato.parse(String.valueOf(anio));
+                break;
+            } catch (Exception e) {
+                System.out.println("Año inválido. Intente de nuevo.");
+            }
+        }
+      
         System.out.println("duranto el anio "+anio+" el limite es: ");
         limite = sc.nextInt();
-        System.out.println(" anio fiscal: "+anio+" | hectareas: "+limite+" ha");
+        final int CONSTANTE2 = limite;
+        System.out.println(" anio fiscal: "+CONSTANTE1+" | hectareas: "+CONSTANTE2+" ha");
         System.out.println("---------------------------");
-        menuPrincipal();
-	}
+    }
+                
+	
+
 	//menu principal
 	public void menuPrincipal() {
 		System.out.println(anio);

@@ -1,20 +1,20 @@
-
-
+package logistica;
 /**
- * Write a description of class ConsumidorFinal here.
+ * En esta clase calculamos el coste de la pequeña logistica 
+ * para tramos de menos de 50km 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Sergio sanchez
+ * @version 1.0
  */
-public class ConsumidorFinal
+public class PequeniaLogistica extends Logistica
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class ConsumidorFinal
+     * Constructor for objects of class PequeniaLogistica
      */
-    public ConsumidorFinal()
+    public PequeniaLogistica()
     {
         // initialise instance variables
         x = 0;

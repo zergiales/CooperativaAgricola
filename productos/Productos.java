@@ -1,5 +1,8 @@
+package productos;
 import java.text.*;
 import java.util.ArrayList;
+
+import menus.Menus;
 
 /**
  * Clase producto donde vamos a proceder a crear el producto

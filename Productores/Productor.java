@@ -1,4 +1,8 @@
+package Productores;
 import java.util.*;
+
+import menus.Menus;
+
 import java.io.*;
 import java.text.*;
 
@@ -16,7 +20,6 @@ public class Productor extends Menus{
     // atributos que vamos a instanciar en el contructor
     private String nombreProductor;
     private String dni;//primary key
-	private Date fecha;// cada año fiscal se determina la extension	
 	private double hectareasN;// numero de hectareas 
 	//productos en posesion del productor
 	private String nombreP;
@@ -29,11 +32,10 @@ public class Productor extends Menus{
     public Productor() {}
    
     //constructor con parametros
-    public Productor(String nombreProductor, String dni, Date fecha, double hectareasN,
+    public Productor(String nombreProductor, String dni, double hectareasN,
 			ArrayList<Productor> listaProductos) {
 		this.nombreProductor = nombreProductor;
 		this.dni = dni;
-		this.fecha = fecha;
 		this.hectareasN = hectareasN;//es igual al numero de hectareas que vamos guardando en total
 	}
 
@@ -57,14 +59,6 @@ public class Productor extends Menus{
 
 	private void setDni(String dni) {
 		this.dni = dni;
-	}
-
-	private Date getFecha() {
-		return fecha;
-	}
-
-	private void setFecha(Date fecha) {
-		this.fecha = fecha;
 	}
 
 	private double getHectareasN() {
@@ -124,22 +118,6 @@ public class Productor extends Menus{
 			validaDni = sc.nextLine();}
 		System.out.println(" ");
         
-        
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
-        formato.setLenient(false);
-
-        while (true) {
-            System.out.print("Ingrese la fecha (dd/MM/yyyy): ");
-            String fechaStr = sc.nextLine();
-
-            try {
-              setFecha(formato.parse(fechaStr));
-              break;
-            } catch (Exception e) {
-              System.out.println("Fecha inválida. Intente de nuevo.");
-            }
-          }
-        
         System.out.println(" ");
         System.out.print("numero de productos que va a plantar: ");
         int numProducto = sc.nextInt();
@@ -160,7 +138,7 @@ public class Productor extends Menus{
           listaProductos.add(listado);
         }
         //arraylist donde metemos a todos los productores
-        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getFecha(),getHectareasN(),listaProductos);
+        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN(),listaProductos);
 //        productores.add(nuevoProductor);
         
         /**
@@ -221,7 +199,7 @@ public class Productor extends Menus{
 
 		return "nombre del productor:"+getNombreProductor()+" |\n "+
 				"Dni: "+getDni()+" |\n "+
-				"fecha fiscal: "+getFecha().getDay()+"|\n "+
+				"fecha fiscal: "+getAnio()+"|\n "+
 				"hectareas totales: "+getHectareasN()+"|\n "+				
 				"listado de prodcutos y hectareas: ";
 		

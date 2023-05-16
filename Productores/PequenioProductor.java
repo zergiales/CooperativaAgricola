@@ -1,3 +1,4 @@
+package Productores;
 
 /**
  * clase PequenioProductor que como su nombre indica, es una clase 

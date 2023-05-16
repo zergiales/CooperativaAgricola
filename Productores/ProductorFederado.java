@@ -1,3 +1,5 @@
+package Productores;
+
 /**
  * Clase para los productores qe por extension no llegan a ser grandes prodcutoes
  * 
@@ -14,7 +16,7 @@ public class ProductorFederado extends PequenioProductor{
 		// TODO Auto-generated constructor stub
 	}
 	protected String nombreFeredacion;
-    protected String federado[]= new String[10]; //para tener almacenados  los prodcutores que estan federados
+    protected String conjuntoFederacion[]= new String[10]; //para tener almacenados  los prodcutores que estan federados
     
 
    

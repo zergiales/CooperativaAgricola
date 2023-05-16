@@ -1,3 +1,4 @@
+package distribuidores;
 
 /**
  * Write a description of class Distribuidores here.

@@ -1,3 +1,4 @@
+package Productores;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ public class GranProductor extends Productor{
 	//constructor con parametro
 	public GranProductor(String nombreProductor, String dni, Date fecha, double hectareasN,
 			ArrayList<Productor> listaProductos,boolean grande) {
-		super(nombreProductor, dni, fecha, hectareasN, listaProductos);
+		super(nombreProductor, dni, hectareasN, listaProductos);
 	}
 }
 

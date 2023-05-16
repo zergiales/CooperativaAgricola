@@ -1,19 +1,21 @@
+package consumidorFinal;
+
 
 /**
- * Write a description of class PequeniaLogistica here.
+ * Write a description of class ConsumidorFinal here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PequeniaLogistica extends Logistica
+public class ConsumidorFinal
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class PequeniaLogistica
+     * Constructor for objects of class ConsumidorFinal
      */
-    public PequeniaLogistica()
+    public ConsumidorFinal()
     {
         // initialise instance variables
         x = 0;
