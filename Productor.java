@@ -42,11 +42,60 @@ public class Productor extends Menus{
     };
 
 	//metodo para crear productores
+	private String getNombreProductor() {
+		return nombreProductor;
+	}
+	//getters y setter
+	private void setNombreProductor(String nombreProductor) {
+		this.nombreProductor = nombreProductor;
+	}
+
+	private String getDni() {
+		return dni;
+	}
+
+	private void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	private Date getFecha() {
+		return fecha;
+	}
+
+	private void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	private double getHectareasN() {
+		return hectareasN;
+	}
+
+	private void setHectareasN(double hectareasN) {
+		this.hectareasN = hectareasN;
+	}
+
+	private String getNombreP() {
+		return nombreP;
+	}
+
+	private void setNombreP(String nombreP) {
+		this.nombreP = nombreP;
+	}
+
+	private double getHectareasP() {
+		return hectareasP;
+	}
+
+	private void setHectareasP(double hectareasP) {
+		this.hectareasP = hectareasP;
+	}
+
 	public void crearProductor(ArrayList<Productor> productores){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
 		System.out.print("Nombre del productor: ");
 		nombreProductor = sc.nextLine();
+		setNombreProductor(nombreProductor); //probar
 		System.out.println(" ");
         
 		System.out.print("DNI: ");
@@ -83,14 +132,19 @@ public class Productor extends Menus{
           // Pedir el número de hectáreas que ocupa el producto
           System.out.println("Ingrese el numero de hectáreas " + (i+1) + ":");
           double hectareasP = sc.nextDouble();
-
+          hectareasN+=hectareasP;
           // Crear un objeto Productor con los datos ingresados y agregarlo a la lista
           Productor listado = new Productor(nombreP, hectareasP);
           listaProductos.add(listado);
         }
-        //arraylist
+        //arraylist donde metemos a todos los productores
         Productor nuevoProductor = new Productor(nombreProductor,dni,fecha,hectareasN,listaProductos);
         productores.add(nuevoProductor);
+//        if (hectareasN>5) {
+//        	productorGrande.add(nuevoProductor);
+//        } else(hectareasN<5) {
+//        	productorPequenio.add(nuevoProductor);
+//        }
         
         /**
          * si la suma total de las hectareas que posee es <5 es pequeño productor,
@@ -116,9 +170,11 @@ public class Productor extends Menus{
 		return "nombre del productor:"+nombreProductor+" |\n "+
 				"Dni: "+dni+" |\n "+
 				"fecha fiscal: "+fecha.getYear()+"|\n "+
+				"hectareas totales: "+hectareasN+"|\n "+				
 				"listado de prodcutos y hectareas: ";
 		
 	}
+	
 	
 	//metodo para modificar el productor
 	public void modificarProductor() {}

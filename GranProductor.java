@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Clase GranProductor, como su propio indica, es para aquellos productores
@@ -7,11 +9,15 @@
  * @author Sergio
  * @version (a version number or a date)
  */
-public class GranProductor extends Productor
-{
-   //pueden tener como maximo cinco productos diferentes
-    String producto[]= new String[10];
-    protected boolean pequenio = true;
-    //declaramos, instanciamos y damos el tamanio
-    
+public class GranProductor extends Productor{
+	private boolean grande = true;
+
+	//constructor con parametro
+	public GranProductor(String nombreProductor, String dni, Date fecha, double hectareasN,
+			ArrayList<Productor> listaProductos,boolean grande) {
+		super(nombreProductor, dni, fecha, hectareasN, listaProductos);
+		this.grande = grande;
+	}
 }
+
+

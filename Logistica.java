@@ -6,7 +6,7 @@
  * @author Sergio Sanchez 
  * @version (1.0
  */
-public class Logistica extends Menu{
+public class Logistica extends Menus{
     
     private String empresa;
     private int distancia;
@@ -15,6 +15,7 @@ public class Logistica extends Menu{
     //constructor sin parametros
     public Logistica(){}
 
+    //constructor con parametros
 	public Logistica(String empresa, int distancia, boolean perecedero) {
 		super();
 		this.empresa = empresa;
@@ -22,6 +23,9 @@ public class Logistica extends Menu{
 		this.perecedero = perecedero;
 	}
     
-    //constructor con parametros
+	//asignar logistica
+	public void gestion() {
+		
+	}
     
 }

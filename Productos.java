@@ -2,7 +2,7 @@ import java.text.*;
 import java.util.ArrayList;
 
 /**
- * Clase producto donde vamos a porceder a crear el producto
+ * Clase producto donde vamos a proceder a crear el producto
  * @author Sergio
  * @version 1.0
  */
@@ -20,29 +20,68 @@ public class Productos extends Menus{
 	   this.rendimiento = rendimiento;// x hectarea
 	   this.pedecedero = pedecedero; //para la clase logistica
    }
+   //getters y setters
    
-   
-   
+   private String getNombre() {
+	return nombre;
+   }
 
-   
+   private void setNombre(String nombre) {
+	this.nombre = nombre;
+   }
+
+   private double getPrecio() {
+	return precio;
+   }
+
+   private void setPrecio(double precio) {
+	this.precio = precio;
+   }
+
+   private double getRendimiento() {
+	return rendimiento;
+   }
+
+   private void setRendimiento(double rendimiento) {
+	this.rendimiento = rendimiento;
+   }
+
+   private boolean isPedecedero() {
+	return pedecedero;
+   }
+
+   private void setPedecedero(boolean pedecedero) {
+	this.pedecedero = pedecedero;
+   }
+
    public void insertarProducto() {
        System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un producto");
+		System.out.println("para ingresar datos enteros, use la ,");
 		
 		System.out.print("Nombre del producto: ");
 		setNombre(sc.nextLine());
 		System.out.println(" ");
-       
-		System.out.print("indique el precio del kilogramo: ");
-		precio = sc.nextDouble();
 		
+       System.out.print("Ingrese el precio por kilogramo: ");
+       setPrecio(sc.nextDouble());
+  
        System.out.print("inserte el rendimiento por hectarea del producto: ");
-       rendimiento = sc.nextDouble();
+		setRendimiento(sc.nextDouble());
 
-       System.out.print("pedecedero?: ");
-       pedecedero = sc.nextBoolean();
+       System.out.print("pedecedero s o n?: ");
+       String entrada = sc.nextLine();
+       //transformamos el s o n en valor booleano  
+       if(entrada.toLowerCase().equals("n")) {
+        	setPedecedero(true);
+        }else if(entrada.toLowerCase().equals("s")) {
+        	setPedecedero(false);
+        } else if(entrada.toLowerCase().equals("n") | entrada.toLowerCase().equals("s")) {
+        	System.out.println("inserte un dato valido");
+        	entrada= sc.nextLine();
+        }
        //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(nombre, precio,rendimiento, pedecedero);
+       Productos nuevoProducto = new Productos(getNombre(),getPrecio(),getRendimiento(), isPedecedero());
        productos.add(nuevoProducto);
 
        System.out.println("--------------------------------");
@@ -53,34 +92,18 @@ public class Productos extends Menus{
        menuPrincipal();
 	}
     
-   public void mostrarProductos() {
+	public void mostrarProductos() {
 	  for (int i = 0; i < productos.size(); i++) {
 		  Productos e = productos.get(i);
 		System.out.println(e);
-	}
+	  }
    }
- //metodo para mostrar los productores
+	
  	public String toString() {
- 		return "nombre del producto: "+nombre+"  |\n "+
- 				"precio el kilogramo: "+precio+"€ |\n "+
- 				"rendimiento por hectarea: "+rendimiento+" |\n "+
- 				"pedecedero: "+pedecedero;
+ 		return "nombre del producto: "+getNombre()+"  |\n "+
+ 				"precio el kilogramo: "+getPrecio()+" € |\n "+
+ 				"rendimiento por hectarea: "+getRendimiento()+" |\n "+
+ 				"pedecedero: "+isPedecedero();
  		
  	}
- 	public String toStringProductos() {
- 		String txt="";
- 		for (Productos productos : productos) {
-			
-		}
- 		return
- 	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
- 	
 }
