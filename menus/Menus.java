@@ -35,50 +35,8 @@ public abstract class Menus {
 	protected int puntero; //con el cual nos vamos moviendo
 	
 	protected Scanner sc = new Scanner(System.in);
-//	protected int limite;
-//	protected int anio;
-//	 final int CONSTANTE1 = anio;
-//	 final int CONSTANTE2=limite;
-//	protected int getAnio() {
-//		return anio;
-//	}
-//	protected void setAnio(int anio) {
-//		this.anio = anio;
-//	}
-//	 
-//    // Crear una instancia de Calendar
-//    Calendar calendar = Calendar.getInstance();
-//    
-//    // Obtener el objeto Date correspondiente al año
-//    Date fecha = calendar.getTime();
-    
-    // Imprimir la fecha
-	//general
-//	public void general() {
-//        System.out.println("---------------------------");
-//        while (true) {
-//            System.out.println("Establece un año fiscal:");
-//            anio = sc.nextInt();
-//            
-//            SimpleDateFormat formato = new SimpleDateFormat("yyyy"); 
-//            formato.setLenient(false);
-//            try {
-//                fecha = formato.parse(String.valueOf(anio));
-//                break;
-//            } catch (Exception e) {
-//                System.out.println("Año inválido. Intente de nuevo.");
-//            }
-//        }
-//      
-//        System.out.println("duranto el anio "+anio+" el limite es: ");
-//        limite = sc.nextInt();
-//        final int CONSTANTE2 = limite;
-//        System.out.println(" anio fiscal: "+CONSTANTE1+" | hectareas: "+CONSTANTE2+" ha");
-//        System.out.println("---------------------------");
-//    }
-//                
 	
-
+	 
 	//menu principal
 	public void menuPrincipal() {
 		System.out.println("Utilice las teclas numericas para desplazarse por los menus");

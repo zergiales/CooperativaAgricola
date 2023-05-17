@@ -31,6 +31,7 @@ public class Logistica extends Menus{
 	public void crearEmpresa(ArrayList<Logistica> logisticas){
 		System.out.println("nombre de la empresa");
 		empresaLogistica =  sc.nextLine();
+		
 	};        
 
 	//asignar logistica

@@ -2,6 +2,7 @@ package Productores;
 import java.util.*;
 
 import menus.Menus;
+import productos.Productos;
 
 import java.io.*;
 import java.text.*;
@@ -17,29 +18,40 @@ import java.text.*;
  */
 public class Productor extends Menus{
     Scanner sc = new Scanner (System.in);
-    // atributos que vamos a instanciar en el contructor
+    
     private String nombreProductor;
     private String dni;//primary key
 	private double hectareasN;// numero de hectareas 
+	private boolean federado;
+
 	//productos en posesion del productor
 	private String nombreP;
 	private double hectareasP;
 	//lista de productos
 	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();
-	//valor booleano para saber si esta federado o no
-	private boolean federado=false;
 	//constructor predefinido
     public Productor() {}
    
     //constructor con parametros
-    public Productor(String nombreProductor, String dni, double hectareasN,
-			ArrayList<Productor> listaProductos) {
-		this.nombreProductor = nombreProductor;
-		this.dni = dni;
-		this.hectareasN = hectareasN;//es igual al numero de hectareas que vamos guardando en total
-	}
+    /**
+     * @param nombreProductor
+     * @param dni
+     * @param hectareasN
+     * @param federado
+     * @param listaProductos
+     */
+    public Productor(String nombreProductor, String dni, double hectareasN, boolean federado,
+    		ArrayList<Productor> listaProductos) {
+    	this.nombreProductor = nombreProductor;
+    	this.dni = dni;
+    	this.hectareasN = hectareasN;
+    	this.federado = federado;
+    	this.listaProductos = listaProductos;
+    }
+  
+    
 
-    //constructor para listado de productos
+	//constructor para listado de productos
     public Productor(String nombreP, double hectareasP) {
     	this.nombreP = nombreP;
     	this.hectareasP = hectareasP;
@@ -93,6 +105,14 @@ public class Productor extends Menus{
 		this.federado = federado;
 	}
 
+	protected ArrayList<Productor> getListaProductos() {
+		return listaProductos;
+	}
+
+	protected void setListaProductos(Productor productor) {
+		listaProductos = null;
+	}
+
 	public void crearProductor(ArrayList<Productor> productores){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
@@ -101,45 +121,62 @@ public class Productor extends Menus{
 		System.out.println(" ");
         System.out.println("Nota: 8 digitos y 1 letra mayuscula");
 		System.out.print("DNI:");
+		
 		//validamos el dni
-		String validaDni = sc.nextLine();
-		if (validaDni.length()==9) {
-			// Extraer los dígitos y la letra del DNI
-	        String digitos = validaDni.substring(0, 8);
-	        char letra = validaDni.toUpperCase().charAt(8);
-	     // Verificar que los primeros 8 caracteres sean dígitos
-	        if (!digitos.matches("[0-9]+")) {
-	            System.out.println("error");
-	            menuProductos(); //si te equivocas te manda de nuevo
-	        }else {setDni(validaDni);}
-	        
-		}else{
-			System.out.println("inserte el formato correcto:");
-			validaDni = sc.nextLine();}
+		boolean dniValido = false;
+		while (!dniValido) {
+		    setDni(sc.nextLine());
+		
+		    if (getDni().length() == 9 && getDni().substring(0, 8).matches("[0-9]+") &&
+		            Character.isUpperCase(getDni().charAt(8))) {
+		        dniValido = true;
+		    } else {
+		        System.out.println("DNI inválido. Ingrese el formato correcto (8 dígitos y 1 letra mayúscula).");
+		    }
+		}
+		
+		
 		System.out.println(" ");
         
         System.out.println(" ");
         System.out.print("numero de productos que va a plantar: ");
         int numProducto = sc.nextInt();
         
+        
         // Pedir al usuario que ingrese los datos de cada producto y agregarlos a la lista
         for (int i = 0; i < numProducto; i++) {
           // Pedir el nombre del producto
           System.out.println("Ingrese el nombre del producto " + (i+1) + ":");
           setNombreP(sc.next());
-
+          
+  
           // Pedir el número de hectáreas que ocupa el producto
           System.out.println("Ingrese el numero de hectáreas " + (i+1) + ":");
           setHectareasP(sc.nextDouble());
+          
+          
+          // Verificar si el nombre del producto ya existe en la listaProductos
+          boolean nombreRepetido = false;
+          for (Productor productor : listaProductos) {
+              if (productor.getNombreP().equals(nombreP)) {
+                  nombreRepetido = true;
+                  break;
+              }
+          }
+
+          // Si el nombre está repetido, solicitar nuevamente el ingreso
+          if (nombreRepetido) {
+              System.out.println("El nombre del producto ya existe. Por favor, ingrese otro nombre.");
+              i--;  // Retroceder una iteración para ingresar nuevamente los datos
+              continue;  // Saltar a la siguiente iteración del bucle
+          }
+          
           
           hectareasN+=hectareasP;
           // Crear un objeto Productor con los datos ingresados y agregarlo a la lista
           Productor listado = new Productor(nombreP, hectareasP);
           listaProductos.add(listado);
         }
-        //arraylist donde metemos a todos los productores
-        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN(),listaProductos);
-//        productores.add(nuevoProductor);
         
         /**
          * si la suma total de las hectareas que posee es <5 es pequeño productor,
@@ -148,6 +185,8 @@ public class Productor extends Menus{
          * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
          * funcion a la condición del numero de hectareas
          */
+        //arraylist donde metemos a todos los productores
+        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN(),isFederado(),listaProductos);
         if (getHectareasN()>=5) {
         	granProductor.add(nuevoProductor);
             productores.add(nuevoProductor);
@@ -178,10 +217,13 @@ public class Productor extends Menus{
         	}
 
         }
+
         System.out.println("--------------------------------");
         System.out.println("****Productor creado***");
         // Imprimir la lista de productos
+        
         System.out.println(nuevoProductor.toString());        
+        
         for (Productor p : listaProductos) {
           System.out.println(p.nombreP + " - " + p.hectareasP + " ha");
         }
@@ -194,6 +236,10 @@ public class Productor extends Menus{
 		
 		
 
+	
+	
+	
+	
 	//metodo para mostrar productor añadido
 	public String toString() {		
 
@@ -230,5 +276,26 @@ public class Productor extends Menus{
 		}
 	}
 	
+	//metodo para cargar objetos de tipo productor con productos
+	public void cargarProductores() {
+		Productor productor1 = new Productor("productor1", "12345678A", 4, false,getListaProductos());
+	    Productor productor2 = new Productor("productor2", "12345678A", 4, true, new ArrayList<>());
+		Productor productor3 = new Productor("productor3", "12345678B", 5, false,getListaProductos());
+		Productor productor4 = new Productor("productor4", "12345678C", 6, false,new ArrayList<>());
+		//para insertar los productos en el productor 1 PEQUEÑO
+		productor1.setListaProductos(new Productor("tomate", 3));
+		productor1.setListaProductos(new Productor("alcachofa", 1));
+		// Para insertar los productos en el productor 2 FEDERADO
+	    productor2.getListaProductos().add(new Productor("cebolla", 2));
+	    productor2.getListaProductos().add(new Productor("trigo", 2));
+		//para insertar los productos en el productor 3 GRAN PRODUCTOR
+		productor3.setListaProductos(new Productor("maiz", 2));
+		productor3.setListaProductos(new Productor("alcachofa", 1));
+		productor3.setListaProductos(new Productor("lentejas", 3));
+		//para insertar los productos en el productor 4 GRAN PRODUCTOR
+		productor1.setListaProductos(new Productor("ajo", 6));
+		System.out.println("objetos creados de la clase productor");
+		
+	}
 
 }
