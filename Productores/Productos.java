@@ -1,4 +1,4 @@
-package productos;
+package Productores;
 import java.text.*;
 import java.util.ArrayList;
 
@@ -10,27 +10,27 @@ import menus.Menus;
  * @version 1.0
  */
 public class Productos extends Menus{
-   private String nombre;
+   private String nombreP;
    private double precio;
    private double rendimiento;
    private boolean pedecedero = false;
 
    public Productos() {}
    
-   public Productos(String nombre, double precio, double rendimiento, boolean pedecedero) {
-	   this.nombre = nombre;
+   public Productos(String nombreP, double precio, double rendimiento, boolean pedecedero) {
+	   this.nombreP = nombreP;
 	   this.precio = precio;//x kg
 	   this.rendimiento = rendimiento;// x hectarea
 	   this.pedecedero = pedecedero; //para la clase logistica
    }
    //getters y setters
    
-   private String getNombre() {
-	return nombre;
+   private String getNombreP() {
+	return nombreP;
    }
 
-   private void setNombre(String nombre) {
-	this.nombre = nombre;
+   private void setNombreP(String nombreP) {
+	this.nombreP = nombreP;
    }
 
    private double getPrecio() {
@@ -63,7 +63,7 @@ public class Productos extends Menus{
 		System.out.println("para ingresar datos enteros, use la ,");
 		
 		System.out.print("Nombre del producto: ");
-		setNombre(sc.nextLine());
+		setNombreP(sc.nextLine());
 		System.out.println(" ");
 		
        System.out.print("Ingrese el precio por kilogramo: ");
@@ -84,7 +84,7 @@ public class Productos extends Menus{
         	entrada= sc.nextLine();
         }
        //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(getNombre(),getPrecio(),getRendimiento(), isPedecedero());
+       Productos nuevoProducto = new Productos(getNombreP(),getPrecio(),getRendimiento(), isPedecedero());
        productos.add(nuevoProducto);
 
        System.out.println("--------------------------------");
@@ -103,7 +103,7 @@ public class Productos extends Menus{
    }
 	
  	public String toString() {
- 		return "nombre del producto: "+getNombre()+"  |\n "+
+ 		return "nombre del producto: "+getNombreP()+"  |\n "+
  				"precio el kilogramo: "+getPrecio()+" € |\n "+
  				"rendimiento por hectarea: "+getRendimiento()+" |\n "+
  				"pedecedero: "+isPedecedero();
