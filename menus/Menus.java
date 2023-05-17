@@ -24,7 +24,6 @@ public abstract class Menus {
 	protected ArrayList<Productor> pequenioProductor = new ArrayList<Productor>();
 	//lista de productores que son federados
 	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
-	
 	//arraylist productos
 	protected ArrayList<Productos> productos = new ArrayList<Productos>();
 	//arraylist logistica
@@ -57,23 +56,48 @@ public abstract class Menus {
 	public void menuProductores() {
 		Productor productor = new Productor();
     	System.out.println("Pulse 1 si desea crear un productor");
-        System.out.println("Pulse 2 si desea modificar un productor");
+        System.out.println("Pulse 2 si desea ver todos los productores");
         System.out.println("Pulse 3 si desea eliminar un productor");
         System.out.println("Pulse 4 si desea volver");
         System.out.print("inserte numero: ");
     	puntero = sc.nextInt();
-    	if(puntero==1) {
-			//funcion de crear productor
-    		productor.crearProductor(productores);        
-    	}else if(puntero==2) {
-    		//funcion modifica productor
-    		productor.mostrarProductor();
-    	}else if (puntero==3) {
-    		//funcion eliminar productor 
-    	}else if(puntero==4) {
-    		//volvemos al menu principal
-    		menuPrincipal();
-    	}
+    	switch (puntero) {
+		case 1:
+			System.out.println("Creando productor");
+			productor.crearProductor(productores);
+	        System.out.println("--------------------------------");
+	        break;
+		case 2:
+			System.out.println("Mostrando todos los productores");
+			productor.cargarProductores(productores);
+	        System.out.println("--------------------------------");
+	        break;
+		case 3:
+			/**
+			 * 1º mostramos los productores que son pequeño
+			 * 2º el usuario ha seleccionado el productor pequeño
+			 */
+			System.out.println("Cargando la opcion de ceder productos");
+			menuDistribuidores();
+	        System.out.println("--------------------------------");
+	        break;
+		case 4:
+			System.out.println("abriendo menu de Logistica");
+			menuLogistica();
+	        System.out.println("--------------------------------");
+	        break;
+		case 5:
+			System.out.println("abriendo menu de Compra");
+			menuCompra();
+	        System.out.println("--------------------------------");
+	        break;
+		case 6:
+			System.out.println("volviendo al menu principal");
+			menuPrincipal();
+			break;
+		default:
+			break;
+		}
     		
     }
 	//menu de productos

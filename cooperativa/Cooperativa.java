@@ -21,7 +21,6 @@ public class Cooperativa extends Menus{
         String nombre = sc.nextLine();
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
-		productor .cargarProductores();
         coop.menuPrincipal();//metodo que gestiona
         
         

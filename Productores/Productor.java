@@ -22,8 +22,9 @@ public class Productor extends Menus{
     private String nombreProductor;
     private String dni;//primary key
 	private double hectareasN;// numero de hectareas 
+	//constructor
 	private boolean federado;
-
+	private String nombreFederacion;
 	//productos en posesion del productor
 	private String nombreP;
 	private double hectareasP;
@@ -54,7 +55,7 @@ public class Productor extends Menus{
     	this.nombreP = nombreP;
     	this.hectareasP = hectareasP;
     };
-
+    //constructor productor por defecto
 	public Productor() {}
 
 
@@ -263,7 +264,7 @@ public class Productor extends Menus{
 	}
 	
 	//metodo para cargar objetos de tipo productor con productos
-	public void cargarProductores() {
+	public void cargarProductores(ArrayList<Productor> productores) {
 		//creacion del productor 1
 		Productor productor1 = new Productor("productor1", "12345678A", 4, false,new ArrayList<>());
 		productor1.getListaProductos().add(new Productor("tomate", 3));
