@@ -48,8 +48,6 @@ public class Productor extends Menus{
     	this.listaProductos = listaProductos;
     }
   
-    
-
 	//constructor para listado de productos
     public Productor(String nombreP, double hectareasP) {
     	this.nombreP = nombreP;
@@ -57,8 +55,6 @@ public class Productor extends Menus{
     };
     //constructor productor por defecto
 	public Productor() {}
-
-
 
 	private String getNombreProductor() {
 		return nombreProductor;
@@ -192,11 +188,20 @@ public class Productor extends Menus{
         //arraylist donde metemos a todos los productores
         Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN(),isFederado(),listaProductos);
         if (getHectareasN()>=5) {
-        	granProductor.add(nuevoProductor);
+        	granProductor.add(nuevoProductor); //GRAN PRODUCTOR
             productores.add(nuevoProductor);
         	System.out.println("asignado al grupo de grandes productores");
         	
         } else if(getHectareasN()<5) {
+        	//Validamos si los cinco productos que hemos introducido son diferentes
+        	boolean nombreRepetido = false;
+        	System.out.println("comprobando ningun producto este repetido...");
+            for (Productor productor : listaProductos) {
+                if (productor.getNombreP().equals(nombreP)) {
+                    nombreRepetido = true;
+                    break;
+                }
+            }
         	String entrada;
         	boolean entradaValida = false;
         	System.out.println("federado ? (s/n): ");
@@ -227,11 +232,6 @@ public class Productor extends Menus{
         // Imprimir la lista de productos
         
         System.out.println(nuevoProductor.toString());        
-        
-        for (Productor p : listaProductos) {
-          System.out.println(p.nombreP + " - " + p.hectareasP + " ha");
-        }
-        
         System.out.println("--------------------------------");
         System.out.println("volviendo al menu principal");
         System.out.println("--------------------------------");
