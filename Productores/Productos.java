@@ -1,7 +1,6 @@
 package Productores;
 import java.text.*;
 import java.util.ArrayList;
-
 import menus.Menus;
 
 /**
@@ -96,10 +95,7 @@ public class Productos extends Menus{
 	}
     
 	public void mostrarProductos() {
-	  for (int i = 0; i < productos.size(); i++) {
-		  Productos e = productos.get(i);
-		System.out.println(e);
-	  }
+
    }
 	
  	public String toString() {

@@ -10,11 +10,20 @@ import java.util.Date;
  * @version 1.0
  */
 public class GranProductor extends Productor{
-	//constructor con parametro
-	public GranProductor(String nombreProductor, String dni, Date fecha, double hectareasN,
-			ArrayList<Productor> listaProductos,boolean grande) {
-		super(nombreProductor, dni, hectareasN, listaProductos);
+
+	/**
+	 * @param nombreProductor
+	 * @param dni
+	 * @param hectareasN
+	 * @param federado
+	 * @param listaProductos
+	 */
+	public GranProductor(String nombreProductor, String dni, double hectareasN, boolean federado,
+			ArrayList<Productor> listaProductos) {
+		super(nombreProductor, dni, hectareasN, federado, listaProductos);
+		// TODO Auto-generated constructor stub
 	}
+
 }
 
 

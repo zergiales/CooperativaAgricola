@@ -4,10 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.*; //importamos la clase scanner
 
 import Productores.Productor;
+import Productores.Productos;
 import consumidorFinal.ConsumidorFinal;
 import distribuidores.Distribuidores;
 import logistica.Logistica;
-import productos.Productos;
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
  * llamados desde la clase clase cooperativa.class
@@ -57,8 +57,8 @@ public abstract class Menus {
 		Productor productor = new Productor();
     	System.out.println("Pulse 1 si desea crear un productor");
         System.out.println("Pulse 2 si desea ver todos los productores");
-        System.out.println("Pulse 3 si desea eliminar un productor");
-        System.out.println("Pulse 4 si desea volver");
+        System.out.println("Pulse 3 si desea ceder un producto");
+        System.out.println("Pulse 4 si desea volver al menu");
         System.out.print("inserte numero: ");
     	puntero = sc.nextInt();
     	switch (puntero) {
@@ -75,23 +75,14 @@ public abstract class Menus {
 		case 3:
 			/**
 			 * 1º mostramos los productores que son pequeño
-			 * 2º el usuario ha seleccionado el productor pequeño
+			 * 2º el usuario ha seleccionado será un productor pequeño
+			 * 3º en cuanto ceda el producto, sera productor federado
 			 */
 			System.out.println("Cargando la opcion de ceder productos");
 			menuDistribuidores();
 	        System.out.println("--------------------------------");
 	        break;
 		case 4:
-			System.out.println("abriendo menu de Logistica");
-			menuLogistica();
-	        System.out.println("--------------------------------");
-	        break;
-		case 5:
-			System.out.println("abriendo menu de Compra");
-			menuCompra();
-	        System.out.println("--------------------------------");
-	        break;
-		case 6:
 			System.out.println("volviendo al menu principal");
 			menuPrincipal();
 			break;

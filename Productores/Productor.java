@@ -2,7 +2,6 @@ package Productores;
 import java.util.*;
 
 import menus.Menus;
-import productos.Productos;
 
 import java.io.*;
 import java.text.*;
