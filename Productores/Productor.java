@@ -29,8 +29,6 @@ public class Productor extends Menus{
 	private double hectareasP;
 	//lista de productos
 	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();
-	//constructor predefinido
-    public Productor() {}
    
     //constructor con parametros
     /**
@@ -56,6 +54,10 @@ public class Productor extends Menus{
     	this.nombreP = nombreP;
     	this.hectareasP = hectareasP;
     };
+
+	public Productor() {}
+
+
 
 	private String getNombreProductor() {
 		return nombreProductor;
@@ -106,7 +108,8 @@ public class Productor extends Menus{
 	}
 
 	protected ArrayList<Productor> getListaProductos() {
-		return listaProductos;
+		
+		    return listaProductos;
 	}
 
 	protected void setListaProductos(Productor productor) {
@@ -234,25 +237,6 @@ public class Productor extends Menus{
         menuPrincipal();
 	}
 		
-		
-
-	
-	
-	
-	
-	//metodo para mostrar productor añadido
-	public String toString() {		
-
-		 StringBuilder sb = new StringBuilder();
-		    sb.append("Nombre del productor: ").append(nombreProductor).append("\n");
-		    sb.append("DNI: ").append(dni).append("\n");
-		    sb.append("Hectáreas totales: ").append(hectareasN).append("\n");
-		    sb.append("Federado: ").append(federado).append("\n");
-		    sb.append("Lista de productos: ").append(listaProductos).append("\n");
-		    return sb.toString();
-	}
-	
-	
 	//metodo para modificar el productor
 	public void modificarProductor() {
 		//primero mostramos el productor que hay con sus datos
@@ -280,32 +264,39 @@ public class Productor extends Menus{
 	
 	//metodo para cargar objetos de tipo productor con productos
 	public void cargarProductores() {
-		Productor productor1 = new Productor("productor1", "12345678A", 4, false,getListaProductos());
-	    Productor productor2 = new Productor("productor2", "12345678A", 4, true, new ArrayList<>());
-		Productor productor3 = new Productor("productor3", "12345678B", 5, false,getListaProductos());
-		Productor productor4 = new Productor("productor4", "12345678C", 6, false,new ArrayList<>());
-		//para insertar los productos en el productor 1 PEQUEÑO
-		productor1.setListaProductos(new Productor("tomate", 3));
-		productor1.setListaProductos(new Productor("alcachofa", 1));
-		// Para insertar los productos en el productor 2 FEDERADO
+		//creacion del productor 1
+		Productor productor1 = new Productor("productor1", "12345678A", 4, false,new ArrayList<>());
+		productor1.getListaProductos().add(new Productor("tomate", 3));
+	    productor1.getListaProductos().add(new Productor("alcachofa", 1));
+
+	    // Creación del productor 2
+	    Productor productor2 = new Productor("productor2", "12345678B", 5, true, new ArrayList<>());
 	    productor2.getListaProductos().add(new Productor("cebolla", 2));
 	    productor2.getListaProductos().add(new Productor("trigo", 2));
-		//para insertar los productos en el productor 3 GRAN PRODUCTOR
-		productor3.setListaProductos(new Productor("maiz", 2));
-		productor3.setListaProductos(new Productor("alcachofa", 1));
-		productor3.setListaProductos(new Productor("lentejas", 3));
-		//para insertar los productos en el productor 4 GRAN PRODUCTOR
-		productor1.setListaProductos(new Productor("ajo", 6));
-        
-		//agregamos ya dentro del arraylist los que heos creado ya
-		productores.add(productor1);
-        productores.add(productor2);
-        productores.add(productor3);
-        productores.add(productor4);
+
+	    // Agregamos los productores al ArrayList productores
+	    productores.add(productor1);
+	    productores.add(productor2);
 
 		System.out.println("objetos creados de la clase productor");
-		
 		System.out.println(productores.toString());
 	}
 
+	//metodo para mostrar productor añadido
+	public String toString() {		
+	    String result = "Nombre del productor: " + nombreProductor + "\n";
+	    result += "DNI: " + dni + "\n";
+	    result += "Hectareas totales: " + hectareasN + "\n";
+	    result += "Federado: " + federado + "\n";
+	    result += "Lista de productos: \n";
+
+	    for (Productor p : listaProductos) {
+	        result += "Nombre del producto: " + p.getNombreP() + "\n";
+	        result += "Ha ocupadas: " + p.getHectareasP() + "\n";
+	    }
+
+	    result += "---------------------------" + "\n";
+	    return result;
+
+	}
 }
