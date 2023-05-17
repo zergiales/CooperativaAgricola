@@ -1,6 +1,4 @@
 package cooperativa;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner; //importamos la clase scanner
 
 import menus.Menus;
@@ -41,7 +39,7 @@ public class Cooperativa extends Menus{
         String nombre = sc.nextLine();
         System.out.println("--------------------------------");
         System.out.println("Bienvenido: "+nombre);
-        coop.general();//establecemos año fiscal y el limite de hectareas
+//        coop.general();//establecemos año fiscal y el limite de hectareas
         //metodo que gestiona los metodos de cada opcion del menu
         coop.menuPrincipal();
         

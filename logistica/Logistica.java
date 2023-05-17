@@ -1,4 +1,7 @@
 package logistica;
+import java.util.ArrayList;
+
+import Productores.Productor;
 import menus.Menus;
 
 /**
@@ -24,7 +27,12 @@ public class Logistica extends Menus{
 		this.distancia = distancia;
 		this.perecedero = perecedero;
 	}
-    
+    //crear empresa
+	public void crearEmpresa(ArrayList<Logistica> logisticas){
+		System.out.println("nombre de la empresa");
+		empresaLogistica =  sc.nextLine();
+	};        
+
 	//asignar logistica
 	public void gestionLogistica() {
 		System.out.println("numero de kilometros a realizar");

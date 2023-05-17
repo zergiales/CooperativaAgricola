@@ -148,12 +148,12 @@ public class Productor extends Menus{
          * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
          * funcion a la condición del numero de hectareas
          */
-        if (getHectareasN()>=limite) {
+        if (getHectareasN()>=5) {
         	granProductor.add(nuevoProductor);
             productores.add(nuevoProductor);
         	System.out.println("asignado al grupo de grandes productores");
         	
-        } else if(getHectareasN()<limite) {
+        } else if(getHectareasN()<5) {
         	String entrada;
         	boolean entradaValida = false;
         	System.out.println("federado ? (s/n): ");
@@ -199,7 +199,6 @@ public class Productor extends Menus{
 
 		return "nombre del productor:"+getNombreProductor()+" |\n "+
 				"Dni: "+getDni()+" |\n "+
-				"fecha fiscal: "+getAnio()+"|\n "+
 				"hectareas totales: "+getHectareasN()+"|\n "+				
 				"listado de prodcutos y hectareas: ";
 		

@@ -28,61 +28,59 @@ public abstract class Menus {
 	//arraylist productos
 	protected ArrayList<Productos> productos = new ArrayList<Productos>();
 	//arraylist logistica
-	protected ArrayList<Logistica> logistica = new ArrayList<Logistica>();
+	protected ArrayList<Logistica> logisticas = new ArrayList<Logistica>();
 	//objetos
 	Distribuidores distribuidores = new Distribuidores();
     ConsumidorFinal consumidor= new ConsumidorFinal();
 	protected int puntero; //con el cual nos vamos moviendo
 	
-	Scanner sc = new Scanner(System.in);
-	protected int limite;
-	protected int anio;
-	 final int CONSTANTE1 = anio;
-	 final int CONSTANTE2=limite;
-	protected int getAnio() {
-		return anio;
-	}
-	protected void setAnio(int anio) {
-		this.anio = anio;
-	}
-	 
-    // Crear una instancia de Calendar
-    Calendar calendar = Calendar.getInstance();
-    
-    // Obtener el objeto Date correspondiente al año
-    Date fecha = calendar.getTime();
+	protected Scanner sc = new Scanner(System.in);
+//	protected int limite;
+//	protected int anio;
+//	 final int CONSTANTE1 = anio;
+//	 final int CONSTANTE2=limite;
+//	protected int getAnio() {
+//		return anio;
+//	}
+//	protected void setAnio(int anio) {
+//		this.anio = anio;
+//	}
+//	 
+//    // Crear una instancia de Calendar
+//    Calendar calendar = Calendar.getInstance();
+//    
+//    // Obtener el objeto Date correspondiente al año
+//    Date fecha = calendar.getTime();
     
     // Imprimir la fecha
 	//general
-	public void general() {
-        System.out.println("---------------------------");
-        while (true) {
-            System.out.println("Establece un año fiscal:");
-            anio = sc.nextInt();
-            
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy"); 
-            formato.setLenient(false);
-            try {
-                fecha = formato.parse(String.valueOf(anio));
-                break;
-            } catch (Exception e) {
-                System.out.println("Año inválido. Intente de nuevo.");
-            }
-        }
-      
-        System.out.println("duranto el anio "+anio+" el limite es: ");
-        limite = sc.nextInt();
-        final int CONSTANTE2 = limite;
-        System.out.println(" anio fiscal: "+CONSTANTE1+" | hectareas: "+CONSTANTE2+" ha");
-        System.out.println("---------------------------");
-    }
-                
+//	public void general() {
+//        System.out.println("---------------------------");
+//        while (true) {
+//            System.out.println("Establece un año fiscal:");
+//            anio = sc.nextInt();
+//            
+//            SimpleDateFormat formato = new SimpleDateFormat("yyyy"); 
+//            formato.setLenient(false);
+//            try {
+//                fecha = formato.parse(String.valueOf(anio));
+//                break;
+//            } catch (Exception e) {
+//                System.out.println("Año inválido. Intente de nuevo.");
+//            }
+//        }
+//      
+//        System.out.println("duranto el anio "+anio+" el limite es: ");
+//        limite = sc.nextInt();
+//        final int CONSTANTE2 = limite;
+//        System.out.println(" anio fiscal: "+CONSTANTE1+" | hectareas: "+CONSTANTE2+" ha");
+//        System.out.println("---------------------------");
+//    }
+//                
 	
 
 	//menu principal
 	public void menuPrincipal() {
-		System.out.println(anio);
-		System.out.println(limite);
 		System.out.println("Utilice las teclas numericas para desplazarse por los menus");
         System.out.println("1. Menu Productores");
         System.out.println("2. Menu Productos");
@@ -169,15 +167,16 @@ public abstract class Menus {
     	
     }
     public void menuLogistica() {
-    	System.out.println("Pulse 1 si desea crear un productor");
-        System.out.println("Pulse 2 si desea modificar un productor");
-        System.out.println("Pulse 3 si desea eliminar un productor");
-        System.out.println("Pulse 4 si desea ver todos los productos");
+    	Logistica logistica = new Logistica();
+    	System.out.println("Pulse 1 si desea crear una empresa");
+        System.out.println("Pulse 2 si desea insertar oferta");
+        System.out.println("Pulse 3 si desea ver ofertas ");
+        System.out.println("Pulse 4 si desea surtir productos");
         System.out.println("Pulse 5 si desea volver");
         System.out.print("inserte numero: ");
     	puntero = sc.nextInt();
     	if(puntero==1) {
-    		//funcion de crear d
+    		//funcion de crear
     	}else if(puntero==2) {
     		//funcion modifica distribuidor
     	}else if (puntero==3) {
@@ -232,7 +231,7 @@ public abstract class Menus {
 	        System.out.println("--------------------------------");
 	        break;
 		case 4:
-			System.out.println("abriendo menu de Logï¿½stica");
+			System.out.println("abriendo menu de Logistica");
 			menuLogistica();
 	        System.out.println("--------------------------------");
 	        break;
