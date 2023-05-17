@@ -243,11 +243,13 @@ public class Productor extends Menus{
 	//metodo para mostrar productor añadido
 	public String toString() {		
 
-		return "nombre del productor:"+getNombreProductor()+" |\n "+
-				"Dni: "+getDni()+" |\n "+
-				"hectareas totales: "+getHectareasN()+"|\n "+				
-				"listado de prodcutos y hectareas: ";
-		
+		 StringBuilder sb = new StringBuilder();
+		    sb.append("Nombre del productor: ").append(nombreProductor).append("\n");
+		    sb.append("DNI: ").append(dni).append("\n");
+		    sb.append("Hectáreas totales: ").append(hectareasN).append("\n");
+		    sb.append("Federado: ").append(federado).append("\n");
+		    sb.append("Lista de productos: ").append(listaProductos).append("\n");
+		    return sb.toString();
 	}
 	
 	
@@ -294,8 +296,16 @@ public class Productor extends Menus{
 		productor3.setListaProductos(new Productor("lentejas", 3));
 		//para insertar los productos en el productor 4 GRAN PRODUCTOR
 		productor1.setListaProductos(new Productor("ajo", 6));
+        
+		//agregamos ya dentro del arraylist los que heos creado ya
+		productores.add(productor1);
+        productores.add(productor2);
+        productores.add(productor3);
+        productores.add(productor4);
+
 		System.out.println("objetos creados de la clase productor");
 		
+		System.out.println(productores.toString());
 	}
 
 }
