@@ -21,17 +21,17 @@ public class PequenioProductor extends Productor{
 	 * @param listaProductos
 	 */
 	
-//	public PequenioProductor() {
-//		// TODO Auto-generated constructor stub
-//	}
-//	//para acceder a los productores que son pequeños y ver que productos podemos ceder
-//	public void cederProductos(ArrayList<Productor>pequenioProductor) {
-//		System.out.println("seleccione que productor quiere ceder productos");
-//		System.out.println("NOTA: solo se puede ceder un tipo de producto");
-//		for (Productor productor : pequenioProductor) {
-//			System.out.println(toString());
-//		}
-//	}
+	public PequenioProductor() {
+		// TODO Auto-generated constructor stub
+	}
+	//para acceder a los productores que son pequeños y ver que productos podemos ceder
+	public void cederProductos(ArrayList<Productor>pequenioProductor) {
+		System.out.println("seleccione que productor quiere ceder productos");
+		System.out.println("NOTA: solo se puede ceder un tipo de producto");
+		for (Productor productor : pequenioProductor) {
+			System.out.println(toString());
+		}
+	}
 
 
 
