@@ -2,10 +2,11 @@ package Productores;
 import java.util.*;
 
 import menus.Menus;
+import productos.Productos;
 
 import java.io.*;
 import java.text.*;
-
+ import productos.Productos;
 /**
  * Clase productores
  * - En esta clase vamos dar forma a la figura de prodcutores.
@@ -21,95 +22,56 @@ public class Productor extends Menus{
     private String nombreProductor;
     private String dni;//primary key
 	private double hectareasN;// numero de hectareas 
-	//constructor
-	private boolean federado;
-	private String nombreFederacion;
-	//productos en posesion del productor
-	private String nombreP;
-	private double hectareasP;
-	//lista de productos
-	protected ArrayList<Productor> listaProductos= new ArrayList<Productor>();
-   
-    //constructor con parametros
-    /**
-     * @param nombreProductor
-     * @param dni
-     * @param hectareasN
-     * @param federado
-     * @param listaProductos
-     */
-    public Productor(String nombreProductor, String dni, double hectareasN, boolean federado,
-    		ArrayList<Productor> listaProductos) {
-    	this.nombreProductor = nombreProductor;
-    	this.dni = dni;
-    	this.hectareasN = hectareasN;
-    	this.federado = federado;
-    	this.listaProductos = listaProductos;
-    }
-  
-	//constructor para listado de productos
-    public Productor(String nombreP, double hectareasP) {
-    	this.nombreP = nombreP;
-    	this.hectareasP = hectareasP;
-    };
-    //constructor productor por defecto
+	//arraylist productos
+	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
+		
 	public Productor() {}
+	
+	/**
+	 * @param nombreProductor
+	 * @param dni
+	 * @param hectareasN
+	 * @param listaProductos
+	 */
+	public Productor(String nombreProductor, String dni, double hectareasN, ArrayList<Productos> listaProductos) {
+		super();
+		this.nombreProductor = nombreProductor;
+		this.dni = dni;
+		this.hectareasN = hectareasN;
+		this.listaProductos = listaProductos;
+	}
+	// GETTERS Y SETTERS
 
-	private String getNombreProductor() {
+	protected String getNombreProductor() {
 		return nombreProductor;
 	}
-	//getters y setter
-	private void setNombreProductor(String nombreProductor) {
+
+	protected void setNombreProductor(String nombreProductor) {
 		this.nombreProductor = nombreProductor;
 	}
 
-	private String getDni() {
+	protected String getDni() {
 		return dni;
 	}
 
-	private void setDni(String dni) {
+	protected void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	private double getHectareasN() {
+	protected double getHectareasN() {
 		return hectareasN;
 	}
 
-	private void setHectareasN(double hectareasN) {
+	protected void setHectareasN(double hectareasN) {
 		this.hectareasN = hectareasN;
 	}
 
-	private String getNombreP() {
-		return nombreP;
+	protected ArrayList<Productos> getListaProductos() {
+		return listaProductos;
 	}
 
-	private void setNombreP(String nombreP) {
-		this.nombreP = nombreP;
-	}
-
-	private double getHectareasP() {
-		return hectareasP;
-	}
-
-	private void setHectareasP(double hectareasP) {
-		this.hectareasP = hectareasP;
-	}
-
-	private boolean isFederado() {
-		return federado;
-	}
-
-	private void setFederado(boolean federado) {
-		this.federado = federado;
-	}
-
-	protected ArrayList<Productor> getListaProductos() {
-		
-		    return listaProductos;
-	}
-
-	protected void setListaProductos(Productor productor) {
-		listaProductos = null;
+	protected void setListaProductos(ArrayList<Productos> listaProductos) {
+		this.listaProductos = listaProductos;
 	}
 
 	public void crearProductor(ArrayList<Productor> productores){
@@ -133,8 +95,9 @@ public class Productor extends Menus{
 		        System.out.println("DNI inválido. Ingrese el formato correcto (8 dígitos y 1 letra mayúscula).");
 		    }
 		}
-		
-		
+		//metodo para insertarProducto 
+		Productos productos = new Productos();
+		productos.insertarProducto(listaProductos);		
 		System.out.println(" ");
         
         System.out.println(" ");

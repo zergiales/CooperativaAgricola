@@ -59,7 +59,7 @@ public class Productos extends Menus{
 	this.pedecedero = pedecedero;
    }
 
-   public void insertarProducto() {
+   public void insertarProducto(ArrayList<Productor> listaProductos) {
        System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un producto");
 		System.out.println("para ingresar datos enteros, use la ,");
@@ -85,6 +85,7 @@ public class Productos extends Menus{
         	System.out.println("inserte un dato valido");
         	entrada= sc.nextLine();
         }
+       
        //lo insertamos en un arraylist 
        Productos nuevoProducto = new Productos(getNombreP(),getPrecio(),getRendimiento(), isPedecedero());
 //       Productos.add(nuevoProducto);

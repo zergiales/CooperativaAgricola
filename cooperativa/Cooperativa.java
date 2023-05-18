@@ -12,7 +12,8 @@ import menus.Menus;
 public class Cooperativa extends Menus{
     
 	public static void main(String [] args){    	
-    	Scanner sc= new Scanner(System.in);            
+    	System.out.println("entra?");
+		Scanner sc= new Scanner(System.in);            
     	Productor productor = new Productor();
         Cooperativa coop = new Cooperativa(); //creamos instancia y llamamos al metodo de la clase abstracta
         

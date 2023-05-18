@@ -25,8 +25,6 @@ public abstract class Menus {
 	protected ArrayList<Productor> pequenioProductor = new ArrayList<Productor>();
 	//lista de productores que son federados
 	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
-	//arraylist productos
-	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
 	//arraylist logistica
 	protected ArrayList<Logistica> logisticas = new ArrayList<Logistica>();
 	//objetos
