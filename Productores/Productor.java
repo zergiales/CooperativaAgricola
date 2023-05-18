@@ -93,7 +93,7 @@ public class Productor extends Menus{
 		}
 		//metodo para insertarProducto 
 		Productos productos = new Productos();
-		productos.insertarProducto(listaProductos);		
+		productos.insertarProducto(productores);		
 		
         
     

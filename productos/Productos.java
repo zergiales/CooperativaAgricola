@@ -68,6 +68,7 @@ private double getPrecio() {
    private void setPedecedero(boolean pedecedero) {
 	this.pedecedero = pedecedero;
    }
+   
 
    public void insertarProducto(ArrayList<Productor> productores) {
        System.out.println("--------------------------------");

@@ -86,6 +86,9 @@ public abstract class Menus {
 	        System.out.println("--------------------------------");
 	        break;
 		case 4:
+			/**
+			 * vuelves al menu principal
+			 */
 			System.out.println("volviendo al menu principal");
 			menuPrincipal();
 			break;
@@ -97,30 +100,45 @@ public abstract class Menus {
 	//menu de productos
     public void menuProductos() {
     	Productos producto = new Productos();
-    	System.out.println("Pulse 1 si desea crear un producto");
-        System.out.println("Pulse 2 si desea modificar un producto");
-        System.out.println("Pulse 3 si desea eliminar un producto");
-    	System.out.println("Pulse 4 si desea ver todos los productos");
-        System.out.println("Pulse 5 si desea volver");
+    	System.out.println("Pulse 1 si desea ver todos los productos");
+        System.out.println("Pulse 2 si desea eliminar algun producto de un productor");
+    	System.out.println("Pulse 3 si desea volver");
     	System.out.print("inserte numero: ");
      	puntero = sc.nextInt();
-     	if(puntero==1) {
-     		//funcion de crear producto
-     		producto.insertarProducto(productores);
-     	}else if(puntero==2) {
-     		//funcion modifica producto
-     	}else if (puntero==3) {
-     		//funcion eliminar producto 
-     	}else if(puntero==4) {
-     		//funcion para ver todos los productos
-     		producto.toString();
-     	}else if(puntero ==5) {
-     		//volvemos al menu principal
-     		menuPrincipal();
-     		
-     	}
+    	switch (puntero) {
+		case 1:
+			/**
+			 * 1º mostramos todos los productos de los productores
+			 * 2º mostramos la cantidad que hay de cada producto de todo lo que producen 
+			 * 3º y vemos que si se han insertado bien , en la cooperativa a parecerá el numero totoal de productos
+			 *  
+			 */
+			System.out.println("mostrando los productos");
+	        System.out.println("--------------------------------");
+	        break;
+		case 2:
+			/**
+			 * 1º primero seleccionamos el productor
+			 * 2º luego eleminamos el tipo de productos,que supone que las hectareas tb se eliminan
+			 * 3º vemos que se ha heccho todo correcto y se muestra el productor midificado con el producto quitado
+			 */
+			System.out.println("ha decidio eliminar un prod");
+	        System.out.println("--------------------------------");
+	        break;
+		case 3:
+			/**
+			 * pa el lobby 
+			 */
+			System.out.println("volviendo al menu principal");
+			menuPrincipal();
+	        break;
+		default:
+			break;
+		}
     }
     public void menuDistribuidores() {
+    	System.out.println("----------------------");
+    	System.out.println("entrando en el menu de distribuidores");
     	System.out.println("Pulse 1 si desea crear un distribuidor");
         System.out.println("Pulse 2 si desea modificar un distribuidor");        
         System.out.println("Pulse 3 si desea ver los distribuidores");
