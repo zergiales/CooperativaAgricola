@@ -21,7 +21,7 @@ public class Productor extends Menus{
     
     private String nombreProductor;
     private String dni;//primary key
-	private double hectareasN;// numero de hectareas 
+	public double hectareasN;// numero de hectareas 
 	//arraylist productos
 	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
 		
@@ -42,35 +42,31 @@ public class Productor extends Menus{
 	}
 	// GETTERS Y SETTERS
 
-	protected String getNombreProductor() {
+	public String getNombreProductor() {
 		return nombreProductor;
 	}
 
-	protected void setNombreProductor(String nombreProductor) {
+	public void setNombreProductor(String nombreProductor) {
 		this.nombreProductor = nombreProductor;
 	}
 
-	protected String getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	protected void setDni(String dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	protected double getHectareasN() {
-		return hectareasN;
-	}
-
-	protected void setHectareasN(double hectareasN) {
+	public void setHectareasN(double hectareasN) {
 		this.hectareasN = hectareasN;
 	}
 
-	protected ArrayList<Productos> getListaProductos() {
+	public ArrayList<Productos> getListaProductos() {
 		return listaProductos;
 	}
 
-	protected void setListaProductos(ArrayList<Productos> listaProductos) {
+	public void setListaProductos(ArrayList<Productos> listaProductos) {
 		this.listaProductos = listaProductos;
 	}
 
@@ -98,47 +94,11 @@ public class Productor extends Menus{
 		//metodo para insertarProducto 
 		Productos productos = new Productos();
 		productos.insertarProducto(listaProductos);		
-		System.out.println(" ");
+		
         
-        System.out.println(" ");
-        System.out.print("numero de productos que va a plantar: ");
-        int numProducto = sc.nextInt();
-        
-        
-        // Pedir al usuario que ingrese los datos de cada producto y agregarlos a la lista
-        for (int i = 0; i < numProducto; i++) {
-          // Pedir el nombre del producto
-          System.out.println("Ingrese el nombre del producto " + (i+1) + ":");
-          setNombreP(sc.next());
-          
-  
-          // Pedir el número de hectáreas que ocupa el producto
-          System.out.println("Ingrese el numero de hectáreas " + (i+1) + ":");
-          setHectareasP(sc.nextDouble());
-          
-          
-          // Verificar si el nombre del producto ya existe en la listaProductos
-          boolean nombreRepetido = false;
-          for (Productor productor : listaProductos) {
-              if (productor.getNombreP().equals(nombreP)) {
-                  nombreRepetido = true;
-                  break;
-              }
-          }
+    
 
-          // Si el nombre está repetido, solicitar nuevamente el ingreso
-          if (nombreRepetido) {
-              System.out.println("El nombre del producto ya existe. Por favor, ingrese otro nombre.");
-              i--;  // Retroceder una iteración para ingresar nuevamente los datos
-              continue;  // Saltar a la siguiente iteración del bucle
-          }
-          
-          
-          hectareasN+=hectareasP;
-          // Crear un objeto Productor con los datos ingresados y agregarlo a la lista
-          Productor listado = new Productor(nombreP, hectareasP);
-          listaProductos.add(listado);
-        }
+        
         
         /**
          * si la suma total de las hectareas que posee es <5 es pequeño productor,
@@ -147,47 +107,47 @@ public class Productor extends Menus{
          * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
          * funcion a la condición del numero de hectareas
          */
-        //arraylist donde metemos a todos los productores
-        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN(),isFederado(),listaProductos);
-        if (getHectareasN()>=5) {
-        	granProductor.add(nuevoProductor); //GRAN PRODUCTOR
-            productores.add(nuevoProductor);
-        	System.out.println("asignado al grupo de grandes productores");
-        	
-        } else if(getHectareasN()<5) {
-        	//Validamos si los cinco productos que hemos introducido son diferentes
-        	boolean nombreRepetido = false;
-        	System.out.println("comprobando ningun producto este repetido...");
-            for (Productor productor : listaProductos) {
-                if (productor.getNombreP().equals(nombreP)) {
-                    nombreRepetido = true;
-                    break;
-                }
-            }
-        	String entrada;
-        	boolean entradaValida = false;
-        	System.out.println("federado ? (s/n): ");
-        	while (!entradaValida) {
-        	    entrada = sc.nextLine();
-
-        	    if (entrada.toLowerCase().equals("n")) {
-        	        setFederado(false);
-        	        System.out.println("------------------------------------------");
-        	        System.out.println("asignado al grupo de pequenios productores");
-        	        productores.add(nuevoProductor);
-        	        pequenioProductor.add(nuevoProductor);
-        	        entradaValida = true;
-        	    } else if (entrada.toLowerCase().equals("s")) {
-        	        setFederado(true);
-        	        System.out.println("------------------------------------------");
-        	        System.out.println("asignado al grupo de productores federados");
-        	        productores.add(nuevoProductor);
-        	        federadoProductor.add(nuevoProductor);
-        	        entradaValida = true;
-        	    }
-        	}
-
-        }
+//        //arraylist donde metemos a todos los productores
+//        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN1(),isFederado(),listaProductos);
+//        if (getHectareasN()>=5) {
+//        	granProductor.add(nuevoProductor); //GRAN PRODUCTOR
+//            productores.add(nuevoProductor);
+//        	System.out.println("asignado al grupo de grandes productores");
+//        	
+//        } else if(getHectareasN1()<5) {
+//        	//Validamos si los cinco productos que hemos introducido son diferentes
+//        	boolean nombreRepetido = false;
+//        	System.out.println("comprobando ningun producto este repetido...");
+//            for (Productor productor : listaProductos) {
+//                if (productor.getNombreP().equals(nombreP)) {
+//                    nombreRepetido = true;
+//                    break;
+//                }
+//            }
+//        	String entrada;
+//        	boolean entradaValida = false;
+//        	System.out.println("federado ? (s/n): ");
+//        	while (!entradaValida) {
+//        	    entrada = sc.nextLine();
+//
+//        	    if (entrada.toLowerCase().equals("n")) {
+//        	        setFederado(false);
+//        	        System.out.println("------------------------------------------");
+//        	        System.out.println("asignado al grupo de pequenios productores");
+//        	        productores.add(nuevoProductor);
+//        	        pequenioProductor.add(nuevoProductor);
+//        	        entradaValida = true;
+//        	    } else if (entrada.toLowerCase().equals("s")) {
+//        	        setFederado(true);
+//        	        System.out.println("------------------------------------------");
+//        	        System.out.println("asignado al grupo de productores federados");
+//        	        productores.add(nuevoProductor);
+//        	        federadoProductor.add(nuevoProductor);
+//        	        entradaValida = true;
+//        	    }
+//        	}
+//
+//        }
 
         System.out.println("--------------------------------");
         System.out.println("****Productor creado***");

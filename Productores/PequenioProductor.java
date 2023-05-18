@@ -13,13 +13,7 @@ import java.util.ArrayList;
 public class PequenioProductor extends Productor{
 	
 
-	/**
-	 * @param nombreProductor
-	 * @param dni
-	 * @param hectareasN
-	 * @param federado
-	 * @param listaProductos
-	 */
+
 	
 	public PequenioProductor() {
 		// TODO Auto-generated constructor stub

@@ -106,7 +106,7 @@ public abstract class Menus {
      	puntero = sc.nextInt();
      	if(puntero==1) {
      		//funcion de crear producto
-     		producto.insertarProducto();
+     		producto.insertarProducto(productores);
      	}else if(puntero==2) {
      		//funcion modifica producto
      	}else if (puntero==3) {
@@ -151,18 +151,17 @@ public abstract class Menus {
         System.out.println("Pulse 5 si desea volver");
         System.out.print("inserte numero: ");
     	puntero = sc.nextInt();
-    	if(puntero==1) {
-    		//funcion de crear
-    	}else if(puntero==2) {
-    		//funcion modifica distribuidor
-    	}else if (puntero==3) {
-    		//funcion eliminar distribuidor
-    	}else if(puntero==4) {
-    		//ver distribuidores
-    	}else if(puntero==5) {
-    		//volver al menu principal
-    		menuPrincipal();
-    	}      
+    	switch (puntero) {
+		case 1:
+			System.out.println();
+			break;
+		case 2:
+			System.out.println();
+			break;
+			
+		default:
+			break;
+		}
     }
     public void menuCompra() {
     	System.out.println("Pulse 1 si desea añaadir un producto");
