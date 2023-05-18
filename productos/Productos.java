@@ -1,4 +1,4 @@
-package Productores;
+package productos;
 import java.text.*;
 import java.util.ArrayList;
 import menus.Menus;
@@ -80,19 +80,19 @@ public class Productos extends Menus{
         	setPedecedero(false);
         } else if(entrada.toLowerCase().equals("n") || entrada.toLowerCase().equals("s")) {
         	System.out.println("inserte un dato valido");
-        	entrada= sc.nextLine();
+//        	entrada= sc.nextLine();
         }
        //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(getNombreP(),getPrecio(),getRendimiento(), isPedecedero());
-       productos.add(nuevoProducto);
-
-       System.out.println("--------------------------------");
-       System.out.println("****Producto insertado****");
-       System.out.println(productos);
-       System.out.println("--------------------------------");
-       System.out.println("volviendo al menu principal");
-       menuPrincipal();
-	}
+//       Productos nuevoProducto = new Productos(getNombreP(),getPrecio(),getRendimiento(), isPedecedero());
+//       productos.add(nuevoProducto);
+//
+//       System.out.println("--------------------------------");
+//       System.out.println("****Producto insertado****");
+//       System.out.println(productos);
+//       System.out.println("--------------------------------");
+//       System.out.println("volviendo al menu principal");
+//       menuPrincipal();
+//	}
     
 	public void mostrarProductos() {
 

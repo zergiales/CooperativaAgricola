@@ -3,11 +3,12 @@ package menus;
 import java.text.SimpleDateFormat;
 import java.util.*; //importamos la clase scanner
 
+import Productores.PequenioProductor;
 import Productores.Productor;
-import Productores.Productos;
 import consumidorFinal.ConsumidorFinal;
 import distribuidores.Distribuidores;
 import logistica.Logistica;
+import productos.Productos;
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
  * llamados desde la clase clase cooperativa.class
@@ -25,10 +26,11 @@ public abstract class Menus {
 	//lista de productores que son federados
 	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
 	//arraylist productos
-	protected ArrayList<Productos> productos = new ArrayList<Productos>();
+	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
 	//arraylist logistica
 	protected ArrayList<Logistica> logisticas = new ArrayList<Logistica>();
 	//objetos
+	PequenioProductor pequenio = new PequenioProductor();
 	Distribuidores distribuidores = new Distribuidores();
     ConsumidorFinal consumidor= new ConsumidorFinal();
 	protected int puntero; //con el cual nos vamos moviendo
@@ -63,13 +65,16 @@ public abstract class Menus {
     	puntero = sc.nextInt();
     	switch (puntero) {
 		case 1:
+			/**
+			 * 1º insertamos en una arraylist el todos los parametro del productor
+			 * 2º insertamos los productos del prodcutor con sus datos en un arraylist que hemos creado pa los productos 
+			 */
 			System.out.println("Creando productor");
 			productor.crearProductor(productores);
 	        System.out.println("--------------------------------");
 	        break;
 		case 2:
 			System.out.println("Mostrando todos los productores");
-			productor.cargarProductores(productores);
 	        System.out.println("--------------------------------");
 	        break;
 		case 3:
@@ -79,7 +84,7 @@ public abstract class Menus {
 			 * 3º en cuanto ceda el producto, sera productor federado
 			 */
 			System.out.println("Cargando la opcion de ceder productos");
-			menuDistribuidores();
+			pequenio.cederProductos(pequenioProductor);
 	        System.out.println("--------------------------------");
 	        break;
 		case 4:
@@ -110,7 +115,7 @@ public abstract class Menus {
      		//funcion eliminar producto 
      	}else if(puntero==4) {
      		//funcion para ver todos los productos
-     		producto.mostrarProductos();
+     		producto.toString();
      	}else if(puntero ==5) {
      		//volvemos al menu principal
      		menuPrincipal();
