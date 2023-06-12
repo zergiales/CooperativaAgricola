@@ -97,11 +97,7 @@ public class Productor extends Menus{
 		Productos productos = new Productos();
 		productos.insertarProducto(productores);		
 		
-        
-    
 
-        
-        
         /**
          * si la suma total de las hectareas que posee es <5 es peque�o productor,
          * en cambio si son mas de cinco se le asigna al gran productor.
@@ -155,7 +151,6 @@ public class Productor extends Menus{
         System.out.println("****Productor creado***");
         // Imprimir la lista de productos
         
-        System.out.println(nuevoProductor.toString());        
         System.out.println("--------------------------------");
         System.out.println("volviendo al menu principal");
         System.out.println("--------------------------------");
@@ -189,19 +184,14 @@ public class Productor extends Menus{
 	
 	//metodo para cargar objetos de tipo productor con productos
 	public void cargarProductores(ArrayList<Productor> productores) {
-		//creacion del productor 1
-		Productor productor1 = new Productor("productor1", "12345678A", 4, false,new ArrayList<>());
-		productor1.getListaProductos().add(new Productor("tomate", 3));
-	    productor1.getListaProductos().add(new Productor("alcachofa", 1));
-
-	    // Creaci�n del productor 2
-	    Productor productor2 = new Productor("productor2", "12345678B", 5, true, new ArrayList<>());
-	    productor2.getListaProductos().add(new Productor("cebolla", 2));
-	    productor2.getListaProductos().add(new Productor("trigo", 2));
+		//productor 1
+		
+		Productor productor1 = new Productor("nombre1", "12345678E", 4, listaProductos);
+		productor1.getListaProductos();
+	    productor1.getListaProductos();
 
 	    // Agregamos los productores al ArrayList productores
 	    productores.add(productor1);
-	    productores.add(productor2);
 
 		System.out.println("objetos creados de la clase productor");
 		System.out.println(productores.toString());
@@ -212,13 +202,13 @@ public class Productor extends Menus{
 	    String result = "Nombre del productor: " + nombreProductor + "\n";
 	    result += "DNI: " + dni + "\n";
 	    result += "Hectareas totales: " + hectareasN + "\n";
-	    result += "Federado: " + federado + "\n";
+	    // result += "Federado: " + federado + "\n";
 	    result += "Lista de productos: \n";
 
-	    for (Productor p : listaProductos) {
-	        result += "Nombre del producto: " + p.getNombreP() + "\n";
-	        result += "Ha ocupadas: " + p.getHectareasP() + "\n";
-	    }
+	    // for (Productor p : listaProductos) {
+	        // result += "Nombre del producto: " + p.getNombreP() + "\n";
+	        // result += "Ha ocupadas: " + p.getHectareasP() + "\n";
+	    // }
 
 	    result += "---------------------------" + "\n";
 	    return result;

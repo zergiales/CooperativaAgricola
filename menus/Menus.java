@@ -69,8 +69,8 @@ public abstract class Menus {
     	switch (puntero) {
 		case 1:
 			/**
-			 * 1� insertamos en una arraylist el todos los parametro del productor
-			 * 2� insertamos los productos del prodcutor con sus datos en un arraylist que hemos creado pa los productos 
+			 * 1. insertamos en una arraylist el todos los parametro del productor
+			 * 2. insertamos los productos del prodcutor con sus datos en un arraylist que hemos creado pa los productos 
 			 */
 			System.out.println("Creando productor");
 			productor.crearProductor(productores);
@@ -82,11 +82,13 @@ public abstract class Menus {
 	        break;
 		case 3:
 			/**
-			 * 1� mostramos los productores que son peque�o
-			 * 2� el usuario ha seleccionado ser� un productor peque�o
-			 * 3� en cuanto ceda el producto, sera productor federado
+			 * 1. mostramos los productores que son peque�o
+			 * 2. el usuario ha seleccionado ser� un productor peque�o
+			 * 3. en cuanto ceda el producto, sera productor federado
 			 */
 			System.out.println("Cargando la opcion de ceder productos");
+			
+			PequenioProductor pequenio= new PequenioProductor();
 			pequenio.cederProductos(pequenioProductor);
 	        System.out.println("--------------------------------");
 	        break;
