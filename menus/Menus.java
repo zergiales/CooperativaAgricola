@@ -2,13 +2,19 @@ package menus;
 
 import java.text.SimpleDateFormat;
 import java.util.*; //importamos la clase scanner
-
-import Productores.PequenioProductor;
+//PRODUCTORES
 import Productores.Productor;
-import consumidorFinal.ConsumidorFinal;
-import distribuidores.Distribuidores;
+import Productores.PequenioProductor;
+import Productores.GranProductor;
+import Productores.ProductorFederado;
+//LOGISTICA
 import logistica.Logistica;
+//PRODUCTOS
 import productos.Productos;
+//CONSUMIDOR
+import consumidorFinal.ConsumidorFinal;
+//DISTRIBUIDORES
+import distribuidores.Distribuidores;
 /**
  * Clase abstracta donde tendremos los menus que iran siendo
  * llamados desde la clase clase cooperativa.class
@@ -17,20 +23,19 @@ import productos.Productos;
  * @version 1.0
  */
 public abstract class Menus {
-	//arrayList productor general
+	//ARRAYLIST
+	//lista de productores en general
 	protected ArrayList<Productor> productores = new ArrayList<Productor>();
 	//lista de productores que son grandes
 	protected ArrayList<Productor> granProductor = new ArrayList<Productor>();
-	//lista de productores que son pequeños
+	//lista de productores que son pequeÃ±os
 	protected ArrayList<Productor> pequenioProductor = new ArrayList<Productor>();
 	//lista de productores que son federados
 	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
-	//arraylist logistica
-	protected ArrayList<Logistica> logisticas = new ArrayList<Logistica>();
-	//objetos
-	PequenioProductor pequenio = new PequenioProductor();
-	Distribuidores distribuidores = new Distribuidores();
-    ConsumidorFinal consumidor= new ConsumidorFinal();
+	//lista de empresas 
+	protected ArrayList<Logistica> empresas = new ArrayList<Logistica>();
+	
+
 	protected int puntero; //con el cual nos vamos moviendo
 	
 	protected Scanner sc = new Scanner(System.in);
@@ -64,8 +69,8 @@ public abstract class Menus {
     	switch (puntero) {
 		case 1:
 			/**
-			 * 1º insertamos en una arraylist el todos los parametro del productor
-			 * 2º insertamos los productos del prodcutor con sus datos en un arraylist que hemos creado pa los productos 
+			 * 1ï¿½ insertamos en una arraylist el todos los parametro del productor
+			 * 2ï¿½ insertamos los productos del prodcutor con sus datos en un arraylist que hemos creado pa los productos 
 			 */
 			System.out.println("Creando productor");
 			productor.crearProductor(productores);
@@ -77,9 +82,9 @@ public abstract class Menus {
 	        break;
 		case 3:
 			/**
-			 * 1º mostramos los productores que son pequeño
-			 * 2º el usuario ha seleccionado será un productor pequeño
-			 * 3º en cuanto ceda el producto, sera productor federado
+			 * 1ï¿½ mostramos los productores que son pequeï¿½o
+			 * 2ï¿½ el usuario ha seleccionado serï¿½ un productor pequeï¿½o
+			 * 3ï¿½ en cuanto ceda el producto, sera productor federado
 			 */
 			System.out.println("Cargando la opcion de ceder productos");
 			pequenio.cederProductos(pequenioProductor);
@@ -108,9 +113,9 @@ public abstract class Menus {
     	switch (puntero) {
 		case 1:
 			/**
-			 * 1º mostramos todos los productos de los productores
-			 * 2º mostramos la cantidad que hay de cada producto de todo lo que producen 
-			 * 3º y vemos que si se han insertado bien , en la cooperativa a parecerá el numero totoal de productos
+			 * 1ï¿½ mostramos todos los productos de los productores
+			 * 2ï¿½ mostramos la cantidad que hay de cada producto de todo lo que producen 
+			 * 3ï¿½ y vemos que si se han insertado bien , en la cooperativa a parecerï¿½ el numero totoal de productos
 			 *  
 			 */
 			System.out.println("mostrando los productos");
@@ -118,9 +123,9 @@ public abstract class Menus {
 	        break;
 		case 2:
 			/**
-			 * 1º primero seleccionamos el productor
-			 * 2º luego eleminamos el tipo de productos,que supone que las hectareas tb se eliminan
-			 * 3º vemos que se ha heccho todo correcto y se muestra el productor midificado con el producto quitado
+			 * 1ï¿½ primero seleccionamos el productor
+			 * 2ï¿½ luego eleminamos el tipo de productos,que supone que las hectareas tb se eliminan
+			 * 3ï¿½ vemos que se ha heccho todo correcto y se muestra el productor midificado con el producto quitado
 			 */
 			System.out.println("ha decidio eliminar un prod");
 	        System.out.println("--------------------------------");
@@ -182,7 +187,7 @@ public abstract class Menus {
 		}
     }
     public void menuCompra() {
-    	System.out.println("Pulse 1 si desea añaadir un producto");
+    	System.out.println("Pulse 1 si desea aï¿½aadir un producto");
         System.out.println("Pulse 2 si desea modificar un producto");
         System.out.println("Pulse 3 si desea eliminar algo de la cesta");
         System.out.println("Pulse 4 si desea pagar");

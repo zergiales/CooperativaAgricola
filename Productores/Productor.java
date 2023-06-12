@@ -6,7 +6,6 @@ import productos.Productos;
 
 import java.io.*;
 import java.text.*;
- import productos.Productos;
 /**
  * Clase productores
  * - En esta clase vamos dar forma a la figura de prodcutores.
@@ -24,9 +23,11 @@ public class Productor extends Menus{
 	public double hectareasN;// numero de hectareas 
 	//arraylist productos
 	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
-		
-	public Productor() {}
+
 	
+	//constructor por defecto
+	public Productor() {
+	}
 	/**
 	 * @param nombreProductor
 	 * @param dni
@@ -62,6 +63,7 @@ public class Productor extends Menus{
 		this.hectareasN = hectareasN;
 	}
 
+	//get y set de la clase Productos
 	public ArrayList<Productos> getListaProductos() {
 		return listaProductos;
 	}
@@ -88,7 +90,7 @@ public class Productor extends Menus{
 		            Character.isUpperCase(getDni().charAt(8))) {
 		        dniValido = true;
 		    } else {
-		        System.out.println("DNI inválido. Ingrese el formato correcto (8 dígitos y 1 letra mayúscula).");
+		        System.out.println("DNI invï¿½lido. Ingrese el formato correcto (8 dï¿½gitos y 1 letra mayï¿½scula).");
 		    }
 		}
 		//metodo para insertarProducto 
@@ -101,11 +103,11 @@ public class Productor extends Menus{
         
         
         /**
-         * si la suma total de las hectareas que posee es <5 es pequeño productor,
+         * si la suma total de las hectareas que posee es <5 es pequeï¿½o productor,
          * en cambio si son mas de cinco se le asigna al gran productor.
          * 
          * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
-         * funcion a la condición del numero de hectareas
+         * funcion a la condiciï¿½n del numero de hectareas
          */
 //        //arraylist donde metemos a todos los productores
 //        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN1(),isFederado(),listaProductos);
@@ -192,7 +194,7 @@ public class Productor extends Menus{
 		productor1.getListaProductos().add(new Productor("tomate", 3));
 	    productor1.getListaProductos().add(new Productor("alcachofa", 1));
 
-	    // Creación del productor 2
+	    // Creaciï¿½n del productor 2
 	    Productor productor2 = new Productor("productor2", "12345678B", 5, true, new ArrayList<>());
 	    productor2.getListaProductos().add(new Productor("cebolla", 2));
 	    productor2.getListaProductos().add(new Productor("trigo", 2));
@@ -205,7 +207,7 @@ public class Productor extends Menus{
 		System.out.println(productores.toString());
 	}
 
-	//metodo para mostrar productor añadido
+	//metodo para mostrar productor aï¿½adido
 	public String toString() {		
 	    String result = "Nombre del productor: " + nombreProductor + "\n";
 	    result += "DNI: " + dni + "\n";

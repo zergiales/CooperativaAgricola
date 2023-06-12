@@ -68,7 +68,6 @@ private double getPrecio() {
    private void setPedecedero(boolean pedecedero) {
 	this.pedecedero = pedecedero;
    }
-   
 
    public void insertarProducto(ArrayList<Productor> productores) {
        System.out.println("--------------------------------");
@@ -115,8 +114,11 @@ private double getPrecio() {
        productores.add(nuevoProducto);
      }
        System.out.println("añadimos los productos creados al productor");
-       Productor.
-       Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),productores);
+       String nombreProductor ="";
+       String dni ="";
+       Productor p = new Productor();
+    
+       Productor nuevoProductor = new Productor(p.getNombreProductor(),p.getDni(),productores);
        productores.add(nuevoProductor);
 
    
