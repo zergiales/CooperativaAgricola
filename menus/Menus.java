@@ -38,7 +38,7 @@ public abstract class Menus {
 
 	protected int puntero; //con el cual nos vamos moviendo
 	
-	protected Scanner sc = new Scanner(System.in);
+	protected static Scanner sc = new Scanner(System.in);
 	
 	 
 	//menu principal
@@ -125,9 +125,9 @@ public abstract class Menus {
 	        break;
 		case 2:
 			/**
-			 * 1� primero seleccionamos el productor
-			 * 2� luego eleminamos el tipo de productos,que supone que las hectareas tb se eliminan
-			 * 3� vemos que se ha heccho todo correcto y se muestra el productor midificado con el producto quitado
+			 * 1. primero seleccionamos el productor
+			 * 2. luego eleminamos el tipo de productos,que supone que las hectareas tb se eliminan
+			 * 3. vemos que se ha heccho todo correcto y se muestra el productor midificado con el producto quitado
 			 */
 			System.out.println("ha decidio eliminar un prod");
 	        System.out.println("--------------------------------");

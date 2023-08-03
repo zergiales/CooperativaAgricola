@@ -1,6 +1,5 @@
 package Productores;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Clase GranProductor, como su propio indica, es para aquellos productores
@@ -20,8 +19,6 @@ public class GranProductor extends Productor{
 	 */
 	public GranProductor(String nombreProductor, String dni, double hectareasN, boolean federado,
 			ArrayList<Productor> listaProductos) {
-		super(nombreProductor, dni, hectareasN, federado, listaProductos);
-		// TODO Auto-generated constructor stub
 	}
 
 }

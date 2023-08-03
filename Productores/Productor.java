@@ -4,8 +4,6 @@ import java.util.*;
 import menus.Menus;
 import productos.Productos;
 
-import java.io.*;
-import java.text.*;
 /**
  * Clase productores
  * - En esta clase vamos dar forma a la figura de prodcutores.
@@ -19,30 +17,32 @@ public class Productor extends Menus{
     Scanner sc = new Scanner (System.in);
     
     private String nombreProductor;
-    private String dni;//primary key
-	public double hectareasN;// numero de hectareas 
-	//arraylist productos
+    private String dni; //identificador (opcional)
+	public double hectareasN;//numero de hectareas del productor 
+	//arraylist
 	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
 
 	
-	//constructor por defecto
+	//sin parametros
 	public Productor() {
 	}
+	
 	/**
+	 * constructor con parametros
+	 * 
 	 * @param nombreProductor
 	 * @param dni
 	 * @param hectareasN
 	 * @param listaProductos
 	 */
 	public Productor(String nombreProductor, String dni, double hectareasN, ArrayList<Productos> listaProductos) {
-		super();
 		this.nombreProductor = nombreProductor;
 		this.dni = dni;
 		this.hectareasN = hectareasN;
-		this.listaProductos = listaProductos;
+		this.listaProductos = listaProductos; //lista de los productos que tenemos en la clase productos
 	}
+	
 	// GETTERS Y SETTERS
-
 	public String getNombreProductor() {
 		return nombreProductor;
 	}
@@ -59,11 +59,17 @@ public class Productor extends Menus{
 		this.dni = dni;
 	}
 
+
+	public double getHectareasN() {
+		return hectareasN;
+	}
+
 	public void setHectareasN(double hectareasN) {
 		this.hectareasN = hectareasN;
 	}
 
-	//get y set de la clase Productos
+	//get && set del arraylist de la clase productos
+	
 	public ArrayList<Productos> getListaProductos() {
 		return listaProductos;
 	}
@@ -71,7 +77,8 @@ public class Productor extends Menus{
 	public void setListaProductos(ArrayList<Productos> listaProductos) {
 		this.listaProductos = listaProductos;
 	}
-
+	
+	//metodo para crear productor
 	public void crearProductor(ArrayList<Productor> productores){
         System.out.println("--------------------------------");
 		System.out.println("Ha elegido usted insertar un productor");
@@ -81,7 +88,7 @@ public class Productor extends Menus{
         System.out.println("Nota: 8 digitos y 1 letra mayuscula");
 		System.out.print("DNI:");
 		
-		//validamos el dni
+		//validacion del dni
 		boolean dniValido = false;
 		while (!dniValido) {
 		    setDni(sc.nextLine());
@@ -93,59 +100,63 @@ public class Productor extends Menus{
 		        System.out.println("DNI inv�lido. Ingrese el formato correcto (8 d�gitos y 1 letra may�scula).");
 		    }
 		}
-		//metodo para insertarProducto 
+		//proceso insertar productor
+		
 		Productos productos = new Productos();
 		productos.insertarProducto(productores);		
 		
+		//objeto que insertamos en el arraylist
+        Productor nuevoProductor = new Productor
+        (getNombreProductor(),getDni(),getHectareasN(),listaProductos);
+        
+        
+        System.out.println("llega hasta aqui");
+        System.out.println(nuevoProductor.getNombreProductor());
+        System.out.println("------------------------------");
+        
+        
+        if (getHectareasN()>=5) {
+        	granProductor.add(nuevoProductor); //GRAN PRODUCTOR
+            productores.add(nuevoProductor);
+        	System.out.println("asignado al grupo de grandes productores");
+        	
+        } else if(getHectareasN()<5) {
+        	//Validamos si los cinco productos que hemos introducido son diferentes
+        	boolean nombreRepetido = false;
+        	System.out.println("comprobando que ningun producto este repetido...");
+            
+    
+        	for (Productos productos : listaProductos) {   
+            	if (productor.getNombreP().equals(nombreProductor)) {
+                    nombreRepetido = true;
+                    break;
+                }
+            }
+        	String entrada;
+        	boolean entradaValida = false;
+        	System.out.println("federado ? (s/n): ");
+        	
+        	while (!entradaValida) {
+        	    entrada = sc.nextLine();
 
-        /**
-         * si la suma total de las hectareas que posee es <5 es peque�o productor,
-         * en cambio si son mas de cinco se le asigna al gran productor.
-         * 
-         * - metemos a los productores en dos arraylist distintos para tener una clasificacion de los datos en
-         * funcion a la condici�n del numero de hectareas
-         */
-//        //arraylist donde metemos a todos los productores
-//        Productor nuevoProductor = new Productor(getNombreProductor(),getDni(),getHectareasN1(),isFederado(),listaProductos);
-//        if (getHectareasN()>=5) {
-//        	granProductor.add(nuevoProductor); //GRAN PRODUCTOR
-//            productores.add(nuevoProductor);
-//        	System.out.println("asignado al grupo de grandes productores");
-//        	
-//        } else if(getHectareasN1()<5) {
-//        	//Validamos si los cinco productos que hemos introducido son diferentes
-//        	boolean nombreRepetido = false;
-//        	System.out.println("comprobando ningun producto este repetido...");
-//            for (Productor productor : listaProductos) {
-//                if (productor.getNombreP().equals(nombreP)) {
-//                    nombreRepetido = true;
-//                    break;
-//                }
-//            }
-//        	String entrada;
-//        	boolean entradaValida = false;
-//        	System.out.println("federado ? (s/n): ");
-//        	while (!entradaValida) {
-//        	    entrada = sc.nextLine();
-//
-//        	    if (entrada.toLowerCase().equals("n")) {
-//        	        setFederado(false);
-//        	        System.out.println("------------------------------------------");
-//        	        System.out.println("asignado al grupo de pequenios productores");
-//        	        productores.add(nuevoProductor);
-//        	        pequenioProductor.add(nuevoProductor);
-//        	        entradaValida = true;
-//        	    } else if (entrada.toLowerCase().equals("s")) {
-//        	        setFederado(true);
-//        	        System.out.println("------------------------------------------");
-//        	        System.out.println("asignado al grupo de productores federados");
-//        	        productores.add(nuevoProductor);
-//        	        federadoProductor.add(nuevoProductor);
-//        	        entradaValida = true;
-//        	    }
-//        	}
-//
-//        }
+        	    if (entrada.toLowerCase().equals("n")) {
+        	        setFederado(false);
+        	        System.out.println("------------------------------------------");
+        	        System.out.println("asignado al grupo de pequenios productores");
+        	        productores.add(nuevoProductor);
+        	        pequenioProductor.add(nuevoProductor);
+        	        entradaValida = true;
+        	    } else if (entrada.toLowerCase().equals("s")) {
+        	        setFederado(true);
+        	        System.out.println("------------------------------------------");
+        	        System.out.println("asignado al grupo de productores federados");
+        	        productores.add(nuevoProductor);
+        	        federadoProductor.add(nuevoProductor);
+        	        entradaValida = true;
+        	    }
+        	}
+
+        }
 
         System.out.println("--------------------------------");
         System.out.println("****Productor creado***");
@@ -197,7 +208,7 @@ public class Productor extends Menus{
 		System.out.println(productores.toString());
 	}
 
-	//metodo para mostrar productor a�adido
+	//metodo para mostrar productor insertado
 	public String toString() {		
 	    String result = "Nombre del productor: " + nombreProductor + "\n";
 	    result += "DNI: " + dni + "\n";
@@ -205,6 +216,7 @@ public class Productor extends Menus{
 	    // result += "Federado: " + federado + "\n";
 	    result += "Lista de productos: \n";
 
+	    //bucle fr each
 	    // for (Productor p : listaProductos) {
 	        // result += "Nombre del producto: " + p.getNombreP() + "\n";
 	        // result += "Ha ocupadas: " + p.getHectareasP() + "\n";

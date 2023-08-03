@@ -9,5 +9,5 @@ package consumidorFinal;
  */
 public class ConsumidorFinal implements interfazCompra{
    
-	public void realizarCompraCliente()
+	public void realizarCompraCliente(){}
 }

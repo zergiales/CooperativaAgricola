@@ -6,7 +6,8 @@ import Productores.Productor;
 import menus.Menus;
 
 /**
- * Clase producto donde vamos a proceder a crear el producto
+ * Clase producto donde vamos a proceder a crear las propiedades de los productos
+ * de cada productor
  * @author Sergio
  * @version 1.0
  */
@@ -18,8 +19,10 @@ public class Productos extends Menus{
    private boolean pedecedero = false;
    Scanner sc = new Scanner (System.in);
 
+   //constructor por defectp
    public Productos() {}
    
+   //constructor que vamos a ir pidiendo
    public Productos(String nombreP,double hectareasP, double precio, double rendimiento, boolean pedecedero) {
 	   this.nombreP = nombreP;
 	   this.hectareasP = hectareasP;
@@ -27,9 +30,10 @@ public class Productos extends Menus{
 	   this.rendimiento = rendimiento;// x hectarea
 	   this.pedecedero = pedecedero; //para la clase logistica
    }
-   //getters y setters
+
+   // GETTERS Y SETTERS
    
-   private String getNombreP() {
+   public String getNombreP() {
 	return nombreP;
    }
 
@@ -37,15 +41,15 @@ public class Productos extends Menus{
 	this.nombreP = nombreP;
    }
 
-   protected double getHectareasP() {
+   private double getHectareasP() {
 	return hectareasP;
 	}
 	
-	protected void setHectareasP(double hectareasP) {
+	private void setHectareasP(double hectareasP) {
 		this.hectareasP = hectareasP;
 	}
 
-private double getPrecio() {
+   private double getPrecio() {
 	return precio;
    }
 
@@ -82,8 +86,8 @@ private double getPrecio() {
          setNombreP(entradaN);
      
          
-         // Pedir el número de hectáreas que ocupa el producto
-         System.out.println("Ingrese el numero de hectáreas " + (i+1) + ":");
+         // Pedir el nï¿½mero de hectareas que ocupa el producto
+         System.out.println("Ingrese el numero de hectï¿½reas " + (i+1) + ":");
          setHectareasP(sc.nextDouble());
          
          double total=0;
@@ -109,20 +113,9 @@ private double getPrecio() {
         	entrada= sc.nextLine();
         }
 
-       //lo insertamos en un arraylist 
-       Productos nuevoProducto = new Productos(getNombreP(),getHectareasP(), getPrecio(),getRendimiento(),isPedecedero());
-       productores.add(nuevoProducto);
      }
-       System.out.println("añadimos los productos creados al productor");
-       String nombreProductor ="";
-       String dni ="";
-       Productor p = new Productor();
-    
-       Productor nuevoProductor = new Productor(p.getNombreProductor(),p.getDni(),productores);
-       productores.add(nuevoProductor);
-
-   
-       
+       System.out.println("aÃ±adimos los productos creados al productor");
+          
        System.out.println("--------------------------------");
        System.out.println("**** Productos insertado****");
        System.out.println(toString());
@@ -130,20 +123,19 @@ private double getPrecio() {
        System.out.println("volviendo al menu principal");
        menuPrincipal();
 	}
-
 	
-	//metodo para mostrar los productos añadido
+	//metodo para mostrar todo
 		public String toString() {	
-			
+	
 		    String result = "Lista de productos: \n ";
-		    for (Productos  productos : listaProductos) {
+		    
+		    //for each para mostrar todos los productos en formato de lista
+		    for (Productos  productos :Productos.listaProductos) {
 		    	result += "Nombre del producto: " + productos.getNombreP() + "\n";
-		    	result += "Ha ocupadas: " + productos.getHectareasP() + "\n";
+		    	result += "Ha ocupado: " + productos.getHectareasP() + "\n";
 		    }
 		    result += "numero de hectareas: " + getHectareasP() + "\n";
 		  
-
-
 		    result += "---------------------------" + "\n";
 		    return result;
 

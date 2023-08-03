@@ -1,23 +1,16 @@
 package distribuidores;
 
 /**
- * Write a description of class Distribuidores here.
+ * Clase para los distribuidores
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Sergio Sanchez
+ * @version 1.0
  */
-public class Distribuidores
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Distribuidores{
 
-    /**
-     * Constructor for objects of class Distribuidores
-     */
-    public Distribuidores()
-    {
-        // initialise instance variables
-        x = 0;
+    
+    public Distribuidores(){
+    
     }
 
     
