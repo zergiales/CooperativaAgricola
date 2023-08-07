@@ -18,10 +18,8 @@ public class Productor extends Menus{
     
     private String nombreProductor;
     private String dni; //identificador (opcional)
-	public double hectareasN;//numero de hectareas del productor 
-	//arraylist
-	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
-
+	public double hectareasN;//numero de hectareas del productor
+	public boolean isFerederado = false; //por defecto es falso todos los productores que creamos 
 	
 	//sin parametros
 	public Productor() {
@@ -67,9 +65,17 @@ public class Productor extends Menus{
 	public void setHectareasN(double hectareasN) {
 		this.hectareasN = hectareasN;
 	}
-
+	
 	//get && set del arraylist de la clase productos
 	
+	public boolean isFerederado() {
+		return isFerederado;
+	}
+
+	public void setFerederado(boolean isFerederado) {
+		this.isFerederado = isFerederado;
+	}
+
 	public ArrayList<Productos> getListaProductos() {
 		return listaProductos;
 	}
@@ -127,11 +133,14 @@ public class Productor extends Menus{
             
     
         	for (Productos productos : listaProductos) {   
-            	if (productor.getNombreP().equals(nombreProductor)) {
-                    nombreRepetido = true;
-                    break;
-                }
+        		System.out.println("aqui entra");
+        	}
+        		//if (productor.getNombreP().equals(nombreProductor)) {
+//                    nombreRepetido = true;
+//                    break;
+//                }
             }
+
         	String entrada;
         	boolean entradaValida = false;
         	System.out.println("federado ? (s/n): ");
@@ -140,14 +149,14 @@ public class Productor extends Menus{
         	    entrada = sc.nextLine();
 
         	    if (entrada.toLowerCase().equals("n")) {
-        	        setFederado(false);
+        	        setFerederado(false);
         	        System.out.println("------------------------------------------");
         	        System.out.println("asignado al grupo de pequenios productores");
         	        productores.add(nuevoProductor);
         	        pequenioProductor.add(nuevoProductor);
         	        entradaValida = true;
         	    } else if (entrada.toLowerCase().equals("s")) {
-        	        setFederado(true);
+        	        setFerederado(true);
         	        System.out.println("------------------------------------------");
         	        System.out.println("asignado al grupo de productores federados");
         	        productores.add(nuevoProductor);
@@ -155,7 +164,6 @@ public class Productor extends Menus{
         	        entradaValida = true;
         	    }
         	}
-
         }
 
         System.out.println("--------------------------------");

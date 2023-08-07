@@ -34,7 +34,9 @@ public abstract class Menus {
 	protected ArrayList<Productor> federadoProductor = new ArrayList<Productor>();
 	//lista de empresas 
 	protected ArrayList<Logistica> empresas = new ArrayList<Logistica>();
-	
+	//lista de productos
+	protected ArrayList<Productos> listaProductos = new ArrayList<Productos>();
+
 
 	protected int puntero; //con el cual nos vamos moviendo
 	
