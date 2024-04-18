@@ -73,6 +73,7 @@ public class Productos extends Menus{
 	this.pedecedero = pedecedero;
    }
 
+   //metodo que se llama desde el metodo de la clase productor "crearProductor"
    public void insertarProducto(ArrayList<Productor> productores) {
        System.out.println("--------------------------------");
        System.out.print("numero de productos que va a plantar: ");

@@ -31,6 +31,10 @@ public class Logistica extends Menus{
 	public void crearEmpresa(ArrayList<Logistica> logisticas){
 		System.out.println("nombre de la empresa");
 		empresaLogistica =  sc.nextLine();
+		System.out.println("permite productos perecederos?");
+		perecedero=sc.nextBoolean();
+		System.out.println("distancia disponible");
+		distancia = sc.nextInt();
 		
 	};        
 
@@ -38,6 +42,16 @@ public class Logistica extends Menus{
 	public void gestionLogistica() {
 		System.out.println("numero de kilometros a realizar");
 		distancia = sc.nextInt();
+		
+		//entramosen un switch que elige las empresas creadas
+		switch (distancia) {
+		case value:
+			
+			break;
+
+		default:
+			break;
+		}
 	}
     
 }
